@@ -1968,7 +1968,7 @@ window.addEventListener('DOMContentLoaded', function(){
                          btn.id.includes('Filter') || 
                          btn.id.includes('Search') ||
                          btn.classList.contains('m-tab-btn') ||
-                         btn.classList.contains('m-filter-chip');
+                         btn.classList.contains('m-filter-chip') || btn.closest('#mobileApp') !== null;
         if(!isAllowed){
           btn.disabled = true;
           btn.style.opacity = '0.4';
