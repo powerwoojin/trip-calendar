@@ -1267,7 +1267,7 @@
       --m-rose:#dc2626; --m-text:#1a2535; --m-muted:#7b8fa6;
       --m-border:#e5e7eb; --m-tab-h:58px;
     }
-    @media (max-width:768px){
+    @media (max-width:900px){
       .wrap{display:none!important;}
       #mobileApp{display:flex!important;flex-direction:column;height:100dvh;background:var(--m-bg);font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;overflow:hidden;}
 
@@ -1396,7 +1396,7 @@
 
       @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
     }
-    @media (min-width:769px){
+    @media (min-width:901px){
       #mobileApp{display:none!important;}
       .wrap{display:block!important;}
     }
@@ -3635,7 +3635,7 @@ setTimeout(function(){
 // =====================================================
 // 모바일 앱 JS (재작성)
 // =====================================================
-var IS_MOBILE = function() { return window.innerWidth <= 768; };
+var IS_MOBILE = function() { return window.innerWidth <= 900; };
 var mCurrentTab = 'calendar';
 var mCurrentMonth = new Date().getMonth() + 1;
 var mCurrentYear = new Date().getFullYear();
