@@ -6,7 +6,7 @@
   <title>출장 배정 보드 | 충청권환경본부</title>
   
   <!-- SheetJS 라이브러리 (CDN) -->
-<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
   
   <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
@@ -1262,8 +1262,319 @@
         break-inside: avoid !important;
       }
     }
+
+  <!-- ═══════════════════════════════════════════
+       모바일 전용 UI (카카오 스타일)
+  ═══════════════════════════════════════════ -->
+  <style>
+    /* ── 모바일 전용 변수 ── */
+    :root {
+      --m-bg: #f2f3f5;
+      --m-surface: #ffffff;
+      --m-navy: #1e3a5f;
+      --m-blue: #2563eb;
+      --m-green: #059669;
+      --m-amber: #d97706;
+      --m-rose: #dc2626;
+      --m-text: #1a2535;
+      --m-muted: #7b8fa6;
+      --m-border: #e5e7eb;
+      --m-tab-h: 60px;
+    }
+
+    @media (max-width: 768px) {
+      /* PC 화면 숨기기 */
+      .wrap { display: none !important; }
+
+      /* 모바일 앱 전체 래퍼 */
+      #mobileApp {
+        display: flex;
+        flex-direction: column;
+        height: 100dvh;
+        background: var(--m-bg);
+        font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        overflow: hidden;
+      }
+
+      /* ── 상단 헤더 ── */
+      #mobileHeader {
+        background: var(--m-navy);
+        color: white;
+        padding: 12px 16px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,.2);
+        padding-top: max(12px, env(safe-area-inset-top));
+      }
+      #mobileHeader .hd-title { font-size: 15px; font-weight: 700; }
+      #mobileHeader .hd-sub { font-size: 11px; opacity: .65; margin-top: 1px; }
+      #mobileHeader .hd-right { display: flex; gap: 8px; align-items: center; }
+      #mobileRefreshBtn {
+        background: rgba(255,255,255,.15);
+        border: none; color: white;
+        padding: 6px 10px; border-radius: 6px;
+        font-size: 12px; cursor: pointer;
+      }
+      #mobileVersionBadge {
+        font-size: 10px; opacity: .7;
+        background: rgba(255,255,255,.1);
+        padding: 3px 7px; border-radius: 10px;
+      }
+
+      /* ── 스크롤 콘텐츠 영역 ── */
+      #mobileContent {
+        flex: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: calc(var(--m-tab-h) + env(safe-area-inset-bottom));
+      }
+
+      /* ── 통계 카드 ── */
+      .m-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 12px 12px 4px;
+      }
+      .m-stat-card {
+        background: var(--m-surface);
+        border-radius: 12px;
+        padding: 12px 14px;
+        box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      }
+      .m-stat-card.full { grid-column: 1/-1; background: linear-gradient(135deg,#fef3c7,#fde68a); }
+      .m-stat-card .sk { font-size: 10px; color: var(--m-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 3px; }
+      .m-stat-card .sv { font-size: 20px; font-weight: 700; color: var(--m-navy); }
+      .m-stat-card.full .sv { font-size: 14px; color: #92400e; }
+
+      /* ── 섹션 타이틀 ── */
+      .m-section-title {
+        font-size: 13px; font-weight: 700;
+        color: var(--m-navy);
+        padding: 14px 16px 8px;
+      }
+
+      /* ── 출장 카드 (카카오 스타일) ── */
+      .m-trip-card {
+        background: var(--m-surface);
+        margin: 0 12px 8px;
+        border-radius: 14px;
+        padding: 14px 16px;
+        box-shadow: 0 1px 4px rgba(0,0,0,.07);
+        border-left: 4px solid var(--m-blue);
+        cursor: pointer;
+        transition: transform .1s, box-shadow .1s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .m-trip-card:active { transform: scale(.98); box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+      .m-trip-card.sky { border-left-color: #2563eb; }
+      .m-trip-card.green { border-left-color: #059669; }
+      .m-trip-card.amber { border-left-color: #d97706; }
+
+      .m-trip-card .tc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+      .m-trip-card .tc-dest { font-size: 15px; font-weight: 700; color: var(--m-text); }
+      .m-trip-card .tc-date { font-size: 11px; color: var(--m-muted); background: var(--m-bg); padding: 3px 7px; border-radius: 6px; }
+      .m-trip-card .tc-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 5px; }
+      .m-trip-card .tc-tag { font-size: 11px; background: #eff6ff; color: #1e40af; padding: 3px 8px; border-radius: 6px; font-weight: 500; }
+      .m-trip-card .tc-tag.vehicle { background: #f0fdf4; color: #166534; }
+      .m-trip-card .tc-tag.person { background: #fef3c7; color: #92400e; }
+      .m-trip-card .tc-tag.risk { background: #fef2f2; color: #991b1b; }
+      .m-trip-card .tc-members { font-size: 12px; color: var(--m-muted); margin-top: 6px; }
+
+      /* ── 날짜 그룹 헤더 ── */
+      .m-date-group {
+        font-size: 12px; font-weight: 700;
+        color: var(--m-muted);
+        padding: 10px 16px 4px;
+        display: flex; align-items: center; gap: 8px;
+      }
+      .m-date-group::after { content:''; flex:1; height:1px; background:var(--m-border); }
+      .m-date-group.today { color: var(--m-blue); }
+
+      /* ── 빈 상태 ── */
+      .m-empty {
+        text-align: center; padding: 40px 20px;
+        color: var(--m-muted); font-size: 13px;
+      }
+      .m-empty .em-icon { font-size: 40px; margin-bottom: 10px; }
+
+      /* ── 필터 바 ── */
+      .m-filter-bar {
+        padding: 8px 12px;
+        display: flex; gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex-shrink: 0;
+        background: var(--m-surface);
+        border-bottom: 1px solid var(--m-border);
+      }
+      .m-filter-bar::-webkit-scrollbar { display: none; }
+      .m-filter-chip {
+        flex-shrink: 0;
+        padding: 5px 12px;
+        border-radius: 20px;
+        border: 1px solid var(--m-border);
+        background: var(--m-surface);
+        font-size: 12px; font-weight: 600;
+        color: var(--m-muted);
+        cursor: pointer;
+        white-space: nowrap;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .m-filter-chip.active {
+        background: var(--m-navy);
+        border-color: var(--m-navy);
+        color: white;
+      }
+
+      /* ── 하단 탭바 ── */
+      #mobileTabBar {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        height: calc(var(--m-tab-h) + env(safe-area-inset-bottom));
+        background: var(--m-surface);
+        border-top: 1px solid var(--m-border);
+        display: flex;
+        padding-bottom: env(safe-area-inset-bottom);
+        box-shadow: 0 -2px 12px rgba(0,0,0,.08);
+        z-index: 100;
+      }
+      .m-tab-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        border: none;
+        background: transparent;
+        color: var(--m-muted);
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: color .15s;
+        font-family: inherit;
+      }
+      .m-tab-btn .tab-icon { font-size: 20px; line-height: 1; }
+      .m-tab-btn.active { color: var(--m-blue); }
+      .m-tab-btn.active .tab-icon { transform: scale(1.1); }
+
+      /* ── 모달 (출장 상세) ── */
+      #mobileModal {
+        position: fixed; inset: 0;
+        z-index: 200;
+        display: none;
+      }
+      #mobileModal.open { display: block; }
+      #mobileModal .mm-backdrop {
+        position: absolute; inset: 0;
+        background: rgba(0,0,0,.5);
+      }
+      #mobileModal .mm-sheet {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: white;
+        border-radius: 20px 20px 0 0;
+        padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: slideUp .25s ease;
+      }
+      @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+      #mobileModal .mm-handle {
+        width: 36px; height: 4px;
+        background: #e5e7eb;
+        border-radius: 2px;
+        margin: 0 auto 16px;
+      }
+      #mobileModal .mm-title { font-size: 17px; font-weight: 700; margin-bottom: 14px; color: var(--m-navy); }
+      #mobileModal .mm-row { display: flex; padding: 8px 0; border-bottom: 1px solid var(--m-border); }
+      #mobileModal .mm-row:last-child { border-bottom: none; }
+      #mobileModal .mm-label { font-size: 12px; color: var(--m-muted); font-weight: 600; width: 70px; flex-shrink: 0; padding-top: 1px; }
+      #mobileModal .mm-value { font-size: 13px; color: var(--m-text); font-weight: 500; }
+
+      /* ── 당겨서 새로고침 인디케이터 ── */
+      #pullRefreshIndicator {
+        text-align: center;
+        padding: 12px;
+        font-size: 12px;
+        color: var(--m-muted);
+        display: none;
+      }
+      #pullRefreshIndicator.show { display: block; }
+    }
+
+    @media (min-width: 769px) {
+      #mobileApp { display: none !important; }
+    }
+  </style>
   </style>
 </head>
+
+<!-- ═══════════════════════════════════════════
+     모바일 전용 앱 UI
+═══════════════════════════════════════════ -->
+<div id="mobileApp" style="display:none;">
+
+  <!-- 상단 헤더 -->
+  <div id="mobileHeader">
+    <div>
+      <div class="hd-title">🏭 출장 배정 보드</div>
+      <div class="hd-sub">충청권환경본부 대기관리2부</div>
+    </div>
+    <div class="hd-right">
+      <span id="mobileVersionBadge">로딩중...</span>
+      <button id="mobileRefreshBtn" onclick="mobileRefresh()">🔄</button>
+    </div>
+  </div>
+
+  <!-- 당겨서 새로고침 인디케이터 -->
+  <div id="pullRefreshIndicator">↓ 당겨서 새로고침</div>
+
+  <!-- 스크롤 콘텐츠 -->
+  <div id="mobileContent">
+    <!-- 탭별 콘텐츠 -->
+    <div id="mTab-home" class="m-tab-content"></div>
+    <div id="mTab-calendar" class="m-tab-content" style="display:none;"></div>
+    <div id="mTab-history" class="m-tab-content" style="display:none;"></div>
+    <div id="mTab-docs" class="m-tab-content" style="display:none;"></div>
+    <div id="mTab-stats" class="m-tab-content" style="display:none;"></div>
+  </div>
+
+  <!-- 하단 탭바 -->
+  <div id="mobileTabBar">
+    <button class="m-tab-btn active" data-tab="home" onclick="mSwitchTab('home')">
+      <span class="tab-icon">📅</span>오늘
+    </button>
+    <button class="m-tab-btn" data-tab="calendar" onclick="mSwitchTab('calendar')">
+      <span class="tab-icon">📆</span>월별
+    </button>
+    <button class="m-tab-btn" data-tab="history" onclick="mSwitchTab('history')">
+      <span class="tab-icon">📋</span>이력
+    </button>
+    <button class="m-tab-btn" data-tab="docs" onclick="mSwitchTab('docs')">
+      <span class="tab-icon">📄</span>문서
+    </button>
+    <button class="m-tab-btn" data-tab="stats" onclick="mSwitchTab('stats')">
+      <span class="tab-icon">📊</span>통계
+    </button>
+  </div>
+
+  <!-- 출장 상세 모달 -->
+  <div id="mobileModal">
+    <div class="mm-backdrop" onclick="closeMobileModal()"></div>
+    <div class="mm-sheet">
+      <div class="mm-handle"></div>
+      <div id="mmContent"></div>
+    </div>
+  </div>
+
+</div>
+
 <body>
 
 <!-- ══ GitHub 상태 배너 ══ -->
@@ -3425,6 +3736,9 @@ document.getElementById('closeModalBtn').onclick=closeTripModal;document.getElem
 window.removeTrip=removeTrip;window.completeTrip=completeTrip;window.openTripModal=openTripModal;window.delayDoc=delayDoc;window.undoDelayDoc=undoDelayDoc;window.deleteDoc=deleteDoc;window.deleteSchedule=deleteSchedule;
 loadState();bindEvents();renderAll();renderIssueBox();
 
+// ── 모바일 초기화 ──
+setTimeout(mobileInit, 100);
+
 // ── GitHub 자동 로드 ──
 document.getElementById('ghRefreshBtn').addEventListener('click', () => loadFromGitHub(true));
 // 페이지 로드 시 자동으로 GitHub에서 최신 데이터 가져오기
@@ -3443,6 +3757,427 @@ setTimeout(function(){
 
 </script>
 
+
+// ═══════════════════════════════════════════════════════════
+// 📱 모바일 앱 UI
+// ═══════════════════════════════════════════════════════════
+const IS_MOBILE = () => window.innerWidth <= 768;
+let mCurrentTab = 'home';
+let mCurrentMonth = new Date().getMonth() + 1;
+let mCurrentYear = new Date().getFullYear();
+
+function mobileInit() {
+  if (!IS_MOBILE()) return;
+  document.getElementById('mobileApp').style.display = 'flex';
+  mRenderTab(mCurrentTab);
+  setupMobileSwipe();
+  setupPullRefresh();
+}
+
+function mSwitchTab(tab) {
+  mCurrentTab = tab;
+  document.querySelectorAll('.m-tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.m-tab-content').forEach(c => c.style.display = 'none');
+  document.getElementById('mTab-' + tab).style.display = 'block';
+  mRenderTab(tab);
+}
+
+function mRenderTab(tab) {
+  if (tab === 'home')     mRenderHome();
+  if (tab === 'calendar') mRenderCalendar();
+  if (tab === 'history')  mRenderHistory();
+  if (tab === 'docs')     mRenderDocs();
+  if (tab === 'stats')    mRenderStats();
+}
+
+function mGetVehicleCls(id) {
+  const v = VEHICLES.find(v => v.id === id);
+  return v ? v.cls : 'sky';
+}
+function mGetVehicleName(id) {
+  const v = VEHICLES.find(v => v.id === id);
+  return v ? v.short : id;
+}
+
+// ── 오늘 탭 ──
+function mRenderHome() {
+  const el = document.getElementById('mTab-home');
+  const today = ymd(new Date());
+  const todayTrips = state.trips.filter(t => t.tripDate <= today && (t.endDate || t.tripDate) >= today && t.status !== 'completed');
+  const weekTrips = state.trips.filter(t => {
+    const d = new Date(t.tripDate);
+    const now = new Date();
+    const weekEnd = new Date(now); weekEnd.setDate(now.getDate() + 7);
+    return new Date(t.tripDate) >= now && new Date(t.tripDate) <= weekEnd && t.status !== 'completed';
+  });
+
+  let html = '';
+
+  // 통계 카드
+  const monthT = state.trips.filter(t => new Date(t.tripDate).getMonth()+1 === new Date().getMonth()+1 && t.status !== 'completed');
+  const topTraveler = (() => {
+    const map = {};
+    state.travelers.forEach(n => map[n] = 0);
+    monthT.forEach(t => (t.members||[]).filter(Boolean).forEach(m => {
+      if (!map[m]) map[m] = 0;
+      map[m]++;
+    }));
+    const sorted = Object.entries(map).sort((a,b)=>b[1]-a[1]);
+    return sorted[0] && sorted[0][1] > 0 ? sorted[0][0] : '-';
+  })();
+
+  html += \`<div class="m-stats">
+    <div class="m-stat-card"><div class="sk">이번달 출장</div><div class="sv">\${monthT.length}건</div></div>
+    <div class="m-stat-card"><div class="sk">출장자</div><div class="sv">\${state.travelers.length}명</div></div>
+    <div class="m-stat-card full"><div class="sk">👑 이달의 출장왕</div><div class="sv">\${topTraveler}</div></div>
+  </div>\`;
+
+  // 오늘 출장
+  html += \`<div class="m-section-title">📅 오늘 출장 (\${today})</div>\`;
+  if (todayTrips.length === 0) {
+    html += \`<div class="m-empty"><div class="em-icon">😊</div>오늘 출장이 없습니다</div>\`;
+  } else {
+    todayTrips.forEach(t => { html += mTripCard(t); });
+  }
+
+  // 이번주 예정
+  html += \`<div class="m-section-title">📆 7일 이내 예정</div>\`;
+  if (weekTrips.length === 0) {
+    html += \`<div class="m-empty"><div class="em-icon">📭</div>예정된 출장이 없습니다</div>\`;
+  } else {
+    // 날짜별 그룹
+    const grouped = {};
+    weekTrips.forEach(t => {
+      if (!grouped[t.tripDate]) grouped[t.tripDate] = [];
+      grouped[t.tripDate].push(t);
+    });
+    Object.keys(grouped).sort().forEach(date => {
+      const d = new Date(date);
+      const dayNames = ['일','월','화','수','목','금','토'];
+      const isToday = date === today;
+      html += \`<div class="m-date-group \${isToday?'today':''}">\${date} (\${dayNames[d.getDay()]})</div>\`;
+      grouped[date].forEach(t => { html += mTripCard(t); });
+    });
+  }
+
+  el.innerHTML = html;
+}
+
+// ── 월별 탭 ──
+function mRenderCalendar() {
+  const el = document.getElementById('mTab-calendar');
+  const monthTripsAll = state.trips.filter(t => new Date(t.tripDate).getMonth()+1 === mCurrentMonth && new Date(t.tripDate).getFullYear() === mCurrentYear);
+
+  // 월 선택 헤더
+  let html = \`<div style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;background:white;border-bottom:1px solid #e5e7eb;">
+    <button onclick="mPrevMonth()" style="background:#f3f4f6;border:none;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">‹</button>
+    <span style="font-weight:700;font-size:16px;color:#1e3a5f;">\${mCurrentYear}년 \${mCurrentMonth}월</span>
+    <button onclick="mNextMonth()" style="background:#f3f4f6;border:none;padding:8px 14px;border-radius:8px;font-size:16px;cursor:pointer;">›</button>
+  </div>\`;
+
+  // 날짜별 그룹
+  const grouped = {};
+  monthTripsAll.forEach(t => {
+    const dates = eachDateInRange(t.tripDate, t.endDate || t.tripDate);
+    dates.forEach(d => {
+      if (!grouped[d]) grouped[d] = [];
+      grouped[d].push(t);
+    });
+  });
+
+  const today = ymd(new Date());
+  if (Object.keys(grouped).length === 0) {
+    html += \`<div class="m-empty"><div class="em-icon">📭</div>\${mCurrentMonth}월 출장이 없습니다</div>\`;
+  } else {
+    Object.keys(grouped).sort().forEach(date => {
+      const d = new Date(date);
+      const dayNames = ['일','월','화','수','목','금','토'];
+      const isToday = date === today;
+      const isSun = d.getDay() === 0;
+      const isSat = d.getDay() === 6;
+      const dayColor = isToday ? '#2563eb' : isSun ? '#dc2626' : isSat ? '#2563eb' : '#7b8fa6';
+      html += \`<div class="m-date-group \${isToday?'today':''}" style="color:\${dayColor};">\${date} (\${dayNames[d.getDay()]})\${isToday?' · 오늘':''}</div>\`;
+      const shown = new Set();
+      grouped[date].forEach(t => {
+        if (shown.has(t.id)) return;
+        shown.add(t.id);
+        html += mTripCard(t);
+      });
+    });
+  }
+
+  el.innerHTML = html;
+}
+
+function mPrevMonth() {
+  mCurrentMonth--;
+  if (mCurrentMonth < 1) { mCurrentMonth = 12; mCurrentYear--; }
+  mRenderCalendar();
+}
+function mNextMonth() {
+  mCurrentMonth++;
+  if (mCurrentMonth > 12) { mCurrentMonth = 1; mCurrentYear++; }
+  mRenderCalendar();
+}
+
+// ── 이력 탭 ──
+function mRenderHistory() {
+  const el = document.getElementById('mTab-history');
+  const completed = state.trips.filter(t => t.status === 'completed').sort((a,b) => (b.completedAt||'').localeCompare(a.completedAt||''));
+  let html = \`<div class="m-section-title">✅ 완료된 출장 (\${completed.length}건)</div>\`;
+  if (!completed.length) {
+    html += \`<div class="m-empty"><div class="em-icon">📭</div>완료된 출장이 없습니다</div>\`;
+  } else {
+    completed.forEach(t => { html += mTripCard(t, true); });
+  }
+  el.innerHTML = html;
+}
+
+// ── 문서 탭 ──
+function mRenderDocs() {
+  const el = document.getElementById('mTab-docs');
+  const active = state.docs.filter(d => !d.completed && !d.delayed);
+  const delayed = state.docs.filter(d => d.delayed || d.csvProgress === '연기');
+  const completed = state.docs.filter(d => d.completed || d.csvProgress === '완료');
+
+  let html = '';
+
+  // 필터 칩
+  html += \`<div class="m-filter-bar">
+    <div class="m-filter-chip active" onclick="mDocsFilter('all', this)">전체 \${state.docs.length}</div>
+    <div class="m-filter-chip" onclick="mDocsFilter('active', this)">진행중 \${active.length}</div>
+    <div class="m-filter-chip" onclick="mDocsFilter('delayed', this)">연기 \${delayed.length}</div>
+    <div class="m-filter-chip" onclick="mDocsFilter('completed', this)">완료 \${completed.length}</div>
+  </div>\`;
+
+  html += \`<div id="mDocsContent"></div>\`;
+  el.innerHTML = html;
+  mDocsRender('all');
+}
+
+function mDocsFilter(type, chipEl) {
+  document.querySelectorAll('.m-filter-chip').forEach(c => c.classList.remove('active'));
+  chipEl.classList.add('active');
+  mDocsRender(type);
+}
+
+function mDocsRender(type) {
+  const el = document.getElementById('mDocsContent');
+  if (!el) return;
+  let docs = [...state.docs];
+  if (type === 'active') docs = docs.filter(d => !d.completed && !d.delayed && d.csvProgress !== '완료' && d.csvProgress !== '연기');
+  if (type === 'delayed') docs = docs.filter(d => d.delayed || d.csvProgress === '연기');
+  if (type === 'completed') docs = docs.filter(d => d.completed || d.csvProgress === '완료');
+
+  if (!docs.length) {
+    el.innerHTML = \`<div class="m-empty"><div class="em-icon">📭</div>해당 문서가 없습니다</div>\`;
+    return;
+  }
+
+  el.innerHTML = docs.map(d => {
+    const statusColor = d.completed || d.csvProgress==='완료' ? '#059669' : d.delayed || d.csvProgress==='연기' ? '#d97706' : '#2563eb';
+    const statusText = d.completed || d.csvProgress==='완료' ? '완료' : d.delayed || d.csvProgress==='연기' ? '연기' : '진행중';
+    const due = d.resultDueDate ? \`마감: \${d.resultDueDate}\` : '';
+    return \`<div class="m-trip-card" style="border-left-color:\${statusColor};">
+      <div class="tc-header">
+        <div class="tc-dest">\${d.destination || '-'}</div>
+        <span style="font-size:11px;font-weight:700;color:\${statusColor};background:\${statusColor}15;padding:3px 8px;border-radius:6px;">\${statusText}</span>
+      </div>
+      <div class="tc-row">
+        \${d.receiptDoc||d.docNo ? \`<span class="tc-tag">\${d.receiptDoc||d.docNo}</span>\` : ''}
+        \${d.owner ? \`<span class="tc-tag person">\${d.owner}</span>\` : ''}
+        \${d.testItem ? \`<span class="tc-tag">\${d.testItem}</span>\` : ''}
+      </div>
+      \${due ? \`<div class="tc-members">\${due}</div>\` : ''}
+    </div>\`;
+  }).join('');
+}
+
+// ── 통계 탭 ──
+function mRenderStats() {
+  const el = document.getElementById('mTab-stats');
+  const monthT = state.trips.filter(t => new Date(t.tripDate).getMonth()+1 === new Date().getMonth()+1);
+
+  // 인원별 출장일수 계산
+  const personDays = {};
+  state.travelers.forEach(name => {
+    personDays[name] = countDaysForPerson(name, monthT);
+  });
+  const sorted = Object.entries(personDays).filter(([,d])=>d>0).sort((a,b)=>b[1]-a[1]);
+
+  let html = \`<div class="m-section-title">📊 이번달 출장 통계</div>\`;
+
+  // 인원별 바 차트
+  const max = sorted[0]?.[1] || 1;
+  html += \`<div style="padding:0 12px;">\`;
+  sorted.forEach(([name, days], i) => {
+    const pct = Math.round((days/max)*100);
+    const colors = ['#2563eb','#059669','#d97706','#7c3aed','#dc2626','#0891b2'];
+    const color = colors[i % colors.length];
+    html += \`<div style="background:white;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+        <span style="font-weight:600;font-size:13px;">\${name}</span>
+        <span style="font-weight:700;font-size:13px;color:\${color};">\${days}일</span>
+      </div>
+      <div style="background:#f3f4f6;border-radius:4px;height:6px;overflow:hidden;">
+        <div style="background:\${color};width:\${pct}%;height:100%;border-radius:4px;transition:width .5s;"></div>
+      </div>
+    </div>\`;
+  });
+  if (!sorted.length) html += \`<div class="m-empty"><div class="em-icon">📭</div>이번달 출장 데이터가 없습니다</div>\`;
+  html += \`</div>\`;
+
+  // 차량별 사용 현황
+  html += \`<div class="m-section-title">🚗 차량별 사용 현황</div><div style="padding:0 12px;">\`;
+  VEHICLES.forEach(v => {
+    const cnt = monthT.filter(t => t.vehicle === v.id).length;
+    html += \`<div style="background:white;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:0 1px 4px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-weight:600;font-size:13px;">\${v.name}</span>
+      <span style="font-weight:700;font-size:15px;color:#1e3a5f;">\${cnt}건</span>
+    </div>\`;
+  });
+  html += \`</div>\`;
+
+  el.innerHTML = html;
+}
+
+// ── 출장 카드 HTML ──
+function mTripCard(t, isHistory) {
+  const v = VEHICLES.find(vv => vv.id === t.vehicle) || {short:'', cls:'sky'};
+  const members = (t.members||[]).filter(Boolean);
+  const dateRange = t.endDate && t.endDate !== t.tripDate ? \`\${t.tripDate} ~ \${t.endDate}\` : t.tripDate;
+  return \`<div class="m-trip-card \${v.cls}" onclick="openMobileModal('\${t.id}')">
+    <div class="tc-header">
+      <div class="tc-dest">\${t.destination || '-'}</div>
+      <span class="tc-date">\${dateRange}</span>
+    </div>
+    <div class="tc-row">
+      \${v.short ? \`<span class="tc-tag vehicle">🚗 \${v.short}</span>\` : ''}
+      \${t.outlet ? \`<span class="tc-tag">\${t.outlet}</span>\` : ''}
+      \${t.testItem ? \`<span class="tc-tag">\${t.testItem}</span>\` : ''}
+      \${t.risk ? \`<span class="tc-tag risk">⚠️ 사전위험성</span>\` : ''}
+    </div>
+    <div class="tc-members">👥 \${members.join(', ') || '-'}</div>
+    \${t.task ? \`<div class="tc-members" style="margin-top:3px;">📝 \${t.task.slice(0,40)}\${t.task.length>40?'...':''}</div>\` : ''}
+  </div>\`;
+}
+
+// ── 모달 ──
+function openMobileModal(id) {
+  const t = state.trips.find(t => String(t.id) === String(id));
+  if (!t) return;
+  const v = VEHICLES.find(vv => vv.id === t.vehicle) || {name:''};
+  const members = (t.members||[]).filter(Boolean);
+  const dateRange = t.endDate && t.endDate !== t.tripDate ? \`\${t.tripDate} ~ \${t.endDate}\` : t.tripDate;
+
+  document.getElementById('mmContent').innerHTML = \`
+    <div class="mm-title">\${t.destination}</div>
+    <div class="mm-row"><div class="mm-label">출장기간</div><div class="mm-value">\${dateRange}</div></div>
+    <div class="mm-row"><div class="mm-label">차량</div><div class="mm-value">\${v.name || '-'}</div></div>
+    <div class="mm-row"><div class="mm-label">담당자</div><div class="mm-value">\${t.owner || '-'}</div></div>
+    <div class="mm-row"><div class="mm-label">지역</div><div class="mm-value">\${t.region || '-'}</div></div>
+    <div class="mm-row"><div class="mm-label">배출구</div><div class="mm-value">\${t.outlet || '-'}</div></div>
+    <div class="mm-row"><div class="mm-label">시험항목</div><div class="mm-value">\${t.risk ? '⚠️ 사전위험성' : (t.testItem || '-')}</div></div>
+    <div class="mm-row"><div class="mm-label">출장인원</div><div class="mm-value">\${members.join(', ') || '-'}</div></div>
+    <div class="mm-row"><div class="mm-label">시험내용</div><div class="mm-value">\${t.task || '-'}</div></div>
+    \${t.note ? \`<div class="mm-row"><div class="mm-label">비고</div><div class="mm-value">\${t.note}</div></div>\` : ''}
+    \${t.docNo ? \`<div class="mm-row"><div class="mm-label">문서번호</div><div class="mm-value">\${t.docNo}</div></div>\` : ''}
+  \`;
+  document.getElementById('mobileModal').classList.add('open');
+}
+
+function closeMobileModal() {
+  document.getElementById('mobileModal').classList.remove('open');
+}
+
+// ── 새로고침 ──
+function mobileRefresh() {
+  loadFromGitHub(true).then(() => {
+    mRenderTab(mCurrentTab);
+    // 버전 배지 업데이트
+    const v = localStorage.getItem('gh-trip-last-version');
+    if (v) {
+      const dt = new Date(v);
+      const badge = document.getElementById('mobileVersionBadge');
+      if (badge && !isNaN(dt)) {
+        badge.textContent = dt.toLocaleString('ko-KR', {month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+      }
+    }
+  });
+}
+
+// ── 스와이프로 탭 이동 ──
+function setupMobileSwipe() {
+  const content = document.getElementById('mobileContent');
+  if (!content) return;
+  let startX = 0, startY = 0;
+  const tabs = ['home', 'calendar', 'history', 'docs', 'stats'];
+
+  content.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  content.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = Math.abs(e.changedTouches[0].clientY - startY);
+    if (Math.abs(dx) > 60 && dy < 80) {
+      const idx = tabs.indexOf(mCurrentTab);
+      if (dx < 0 && idx < tabs.length - 1) mSwitchTab(tabs[idx + 1]);
+      if (dx > 0 && idx > 0) mSwitchTab(tabs[idx - 1]);
+    }
+  }, { passive: true });
+}
+
+// ── 당겨서 새로고침 ──
+function setupPullRefresh() {
+  const content = document.getElementById('mobileContent');
+  const indicator = document.getElementById('pullRefreshIndicator');
+  if (!content || !indicator) return;
+  let startY = 0;
+
+  content.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  content.addEventListener('touchmove', e => {
+    if (content.scrollTop === 0) {
+      const dy = e.touches[0].clientY - startY;
+      if (dy > 40) indicator.classList.add('show');
+    }
+  }, { passive: true });
+
+  content.addEventListener('touchend', e => {
+    const dy = e.changedTouches[0].clientY - startY;
+    indicator.classList.remove('show');
+    if (content.scrollTop === 0 && dy > 60) {
+      mobileRefresh();
+    }
+  }, { passive: true });
+}
+
+// ── applyGitHubData 후 모바일 갱신 ──
+const _origApply = applyGitHubData;
+window.applyGitHubData = function(data) {
+  _origApply(data);
+  if (IS_MOBILE()) mRenderTab(mCurrentTab);
+  // 버전 배지
+  if (data.version) {
+    const dt = new Date(data.version);
+    const badge = document.getElementById('mobileVersionBadge');
+    if (badge && !isNaN(dt)) {
+      badge.textContent = dt.toLocaleString('ko-KR', {month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+    }
+  }
+};
+
+// ── 초기화 ──
+window.addEventListener('resize', () => {
+  const app = document.getElementById('mobileApp');
+  if (app) app.style.display = IS_MOBILE() ? 'flex' : 'none';
+});
+
+// ═══════════════════════════════════════════════════════════
 <script>
 // ── PWA 서비스 워커 등록 ──
 if ('serviceWorker' in navigator) {
