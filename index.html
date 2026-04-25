@@ -1415,6 +1415,7 @@
     <div class="hd-right">
       <button class="hd-icon-btn" onclick="togglePersonFilter()" title="출장자 필터">&#128100;</button>
       <button class="hd-icon-btn" onclick="openNotice()" title="공지사항">&#128226;</button>
+      <button class="hd-icon-btn" onclick="window.open('https://open.kakao.com/o/gmiVQ1ri','_blank')" title="출장 신청" style="background:#FEE500;color:#3A1D1D;">&#128172;</button>
       <button class="hd-icon-btn" onclick="mobileRefresh()" title="새로고침">&#128260;</button>
     </div>
   </div>
@@ -1477,7 +1478,7 @@
     <div class="title">
       <div class="badges" style="margin-bottom:6px;">
         <span class="badge dark">출장일정/이력 관리</span>
-        <span class="badge" style="background:#3b82f6;color:white;">📱 GitHub PWA</span>
+
         <span class="badge dark" id="ghVersionBadge">데이터 로딩중...</span>
       </div>
       <h1>🏭 충청권환경본부 대기관리2부 출장 배정 보드</h1>
@@ -3847,7 +3848,11 @@ function mRenderCalendarBoard() {
         bar.style.width = 'calc(' + ((ei2 - si2 + 1) / 7 * 100) + '% - 4px)';
         bar.style.top = '3px';
         bar.style.bottom = '3px';
-        bar.innerHTML = (trip.destination || '') + (trip.outlet ? ' ' + trip.outlet : '');
+        bar.innerHTML = trip.destination || '';
+        bar.style.fontSize = '9px';
+        bar.style.whiteSpace = 'nowrap';
+        bar.style.overflow = 'hidden';
+        bar.style.textOverflow = 'ellipsis';
         var tid = trip.id;
         bar.onclick = function() { openMobileModal(tid); };
         cellsEl.style.position = 'relative';
