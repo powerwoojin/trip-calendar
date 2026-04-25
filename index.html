@@ -1772,8 +1772,8 @@ window.addEventListener('DOMContentLoaded', function(){
     setTimeout(function(){
       // 모든 버튼 비활성화 (필터/검색/불러오기 제외)
       document.querySelectorAll('button').forEach(btn => {
-        const allowedIds = ['personFilter', 'clearFilterBtn', 'docPickerSearch', 'allDocsSearch', 'importBtn', 'ghRefreshBtn', 'ghBannerReload'];
-        const allowedText = ['닫기', '불러오기', '검색', '초기화', '필터'];
+        const allowedIds = ['personFilter', 'clearFilterBtn', 'docPickerSearch', 'allDocsSearch', 'importBtn', 'ghRefreshBtn', 'ghBannerReload', 'showPlannerBtn', 'showHistoryBtn', 'showAnalyticsBtn', 'showAllDocsBtn', 'showDocsBtn', 'showDelayedDocsBtn', 'showCompletedDocsBtn', 'showUpdateHistoryBtn'];
+        const allowedText = ['닫기', '불러오기', '검색', '초기화', '필터', '배정 보드', '출장 이력', '통계', '출장 리스트', '전체 문서', '연기 리스트', '완료 리스트', '업데이트 이력'];
         const isAllowed = allowedIds.some(id => btn.id === id) || 
                          allowedText.some(text => btn.textContent.includes(text)) ||
                          btn.id.includes('Filter') || 
