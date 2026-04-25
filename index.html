@@ -3613,11 +3613,6 @@ document.getElementById('closeModalBtn').onclick=closeTripModal;document.getElem
 window.removeTrip=removeTrip;window.completeTrip=completeTrip;window.openTripModal=openTripModal;window.delayDoc=delayDoc;window.undoDelayDoc=undoDelayDoc;window.deleteDoc=deleteDoc;window.deleteSchedule=deleteSchedule;
 loadState();bindEvents();renderAll();renderIssueBox();
 
-// ── 모바일 초기화 ──
-setTimeout(mobileInit, 100);
-
-// ── 모바일 초기화 ──
-setTimeout(mobileInit, 300);
 
 // ── GitHub 자동 로드 ──
 document.getElementById('ghRefreshBtn').addEventListener('click', () => loadFromGitHub(true));
@@ -3635,9 +3630,7 @@ setTimeout(function(){
   }
 }, 1000);
 
-</script>
 
-<script>
 // =====================================================
 // 모바일 앱 JS (재작성)
 // =====================================================
@@ -4210,9 +4203,15 @@ window.addEventListener('resize', function() {
   if (app) app.style.display = IS_MOBILE() ? 'flex' : 'none';
 });
 
+// ── 모바일 초기화 ──
+setTimeout(mobileInit, 300);
+
+
 // =====================================================
 
 </script>
+
+
 
 <script>
 // ── PWA 서비스 워커 등록 ──
