@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>출장 배정 보드 | 충청권환경본부</title>
   
-  <!-- SheetJS 라이브러리 (CDN) -->
-  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <!-- SheetJS 라이브러리 (PC에서만 로드) -->
+  <script>
+  if (window.innerWidth > 900) {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js';
+    document.head.appendChild(s);
+  }
+  </script>
   
   <!-- PWA -->
   <link rel="manifest" href="manifest.json" />
@@ -1270,7 +1276,7 @@
     }
     @media (max-width:900px){
       .wrap{display:none!important;}
-      #mobileApp{display:flex!important;flex-direction:column;height:100dvh;background:var(--m-bg);font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;overflow:hidden;}
+      #mobileApp{display:flex!important;flex-direction:column;height:100dvh;will-change:transform;background:var(--m-bg);font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif;overflow:hidden;}
 
       /* 헤더 */
       #mobileHeader{background:var(--m-navy);color:#fff;padding:12px 14px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.2);}
@@ -1303,7 +1309,7 @@
       #mNoticeModal .nm-item-body{font-size:12px;color:var(--m-text2,#4a5568);line-height:1.5;}
 
       /* 콘텐츠 영역 */
-      #mobileContent{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--m-tab-h) + env(safe-area-inset-bottom));}
+      #mobileContent{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;will-change:scroll-position;contain:layout style;padding-bottom:calc(var(--m-tab-h) + env(safe-area-inset-bottom));}
 
       /* 당겨서 새로고침 */
       #pullRefreshIndicator{text-align:center;padding:10px;font-size:12px;color:var(--m-muted);display:none;}
@@ -1322,7 +1328,7 @@
 
       /* 출장 카드 */
       .m-trip-card{background:var(--m-surface);margin:0 12px 8px;border-radius:14px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-left:4px solid var(--m-blue);cursor:pointer;-webkit-tap-highlight-color:transparent;}
-      .m-trip-card:active{opacity:.85;}
+      .m-trip-card:active{opacity:.85;}.m-trip-card{contain:layout;}
       .m-trip-card.sky{border-left-color:#2563eb;}
       .m-trip-card.green{border-left-color:#059669;}
       .m-trip-card.amber{border-left-color:#d97706;}
@@ -1963,12 +1969,17 @@ window.addEventListener('DOMContentLoaded', function(){
       document.querySelectorAll('button').forEach(btn => {
         const allowedIds = ['personFilter', 'clearFilterBtn', 'docPickerSearch', 'allDocsSearch', 'importBtn', 'ghRefreshBtn', 'ghBannerReload', 'showPlannerBtn', 'showHistoryBtn', 'showAnalyticsBtn', 'showAllDocsBtn', 'showDocsBtn', 'showDelayedDocsBtn', 'showCompletedDocsBtn', 'showUpdateHistoryBtn', 'mobileRefreshBtn'];
         const allowedText = ['닫기', '불러오기', '검색', '초기화', '필터', '배정 보드', '출장 이력', '통계', '출장 리스트', '전체 문서', '연기 리스트', '완료 리스트', '업데이트 이력', '오늘', '월별', '이력', '문서', '🔄'];
-        const isAllowed = allowedIds.some(id => btn.id === id) || 
+        // 모바일 UI 버튼은 무조건 허용
+        const isMobileBtn = btn.closest('#mobileApp') !== null;
+        const isAllowed = isMobileBtn ||
+                         allowedIds.some(id => btn.id === id) || 
                          allowedText.some(text => btn.textContent.includes(text)) ||
                          btn.id.includes('Filter') || 
                          btn.id.includes('Search') ||
                          btn.classList.contains('m-tab-btn') ||
-                         btn.classList.contains('m-filter-chip') || btn.closest('#mobileApp') !== null;
+                         btn.classList.contains('m-filter-chip') ||
+                         btn.classList.contains('hd-icon-btn') ||
+                         btn.classList.contains('m-person-chip');
         if(!isAllowed){
           btn.disabled = true;
           btn.style.opacity = '0.4';
