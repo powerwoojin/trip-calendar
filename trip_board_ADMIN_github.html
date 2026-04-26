@@ -1869,6 +1869,7 @@
         <h2 style="color:white;margin:0;">🤖 Claude AI 출장 자동 배정</h2>
         <div class="inline" style="gap:8px;">
           <span style="font-size:12px;opacity:.85;">현재 대기 문서·출장자·차량 정보가 자동으로 포함됩니다</span>
+          <button onclick="aiClearHistory()" style="font-size:12px;padding:4px 10px;background:rgba(255,255,255,0.2);color:white;border:1px solid rgba(255,255,255,0.4);">🗑 대화 초기화</button>
         </div>
       </div>
 
@@ -2240,7 +2241,7 @@ function loadState(){
   }
 }
 function currentTripForm(){const tripDate=document.getElementById('tripDate').value;return {tripDate:tripDate,endDate:document.getElementById('tripEndDate').value||tripDate,docNo:document.getElementById('tripDocNo').value.trim(),vehicle:document.getElementById('tripVehicle').value,planMonth:(tripDate||'').slice(0,7),owner:document.getElementById('tripOwner').value.trim(),region:document.getElementById('tripRegion').value.trim(),destination:document.getElementById('tripDestination').value.trim(),outlet:document.getElementById('tripOutlet').value.trim(),testItem:document.getElementById('tripTestItem').value.trim(),task:document.getElementById('tripTask').value.trim(),members:[document.getElementById('tripLeader').value,document.getElementById('tripMember1').value,document.getElementById('tripMember2').value,document.getElementById('tripMember3').value,document.getElementById('tripMember4').value,document.getElementById('tripMember5').value],note:document.getElementById('tripNote').value.trim(),risk:document.getElementById('tripRisk').checked,status:'planned',completedAt:'',resultNote:''}}
-function formIssues(){const f=currentTripForm(),issues=[],members=f.members.filter(Boolean);if(!f.tripDate||!f.endDate||!f.docNo||!f.vehicle||!f.destination||!f.outlet||!f.task)issues.push('시작일, 종료일, 문서번호, 차량, 사업장명, 배출구, 시험내용은 필수입니다.');if(f.endDate<f.tripDate)issues.push('출장 종료일은 시작일보다 빠를 수 없습니다.');if(members.length<2)issues.push('출장건당 인원은 최소 2명 이상이어야 합니다.');if(new Set(members).size!==members.length)issues.push('출장 인원은 서로 달라야 합니다.');if(f.tripDate&&f.endDate){eachDateInRange(f.tripDate,f.endDate).forEach(date=>{if(isHolidayDate(date))issues.push(`${date}은(는) 공휴일이라 출장 배정이 불가합니다.`);if(f.vehicle&&vehicleConflict(date,f.vehicle))issues.push(`${date}에 선택한 차량은 이미 배정되어 있습니다.`);members.forEach(member=>{if(member&&memberConflict(date,member))issues.push(`${member}은(는) ${date}에 다른 출장건에 배정되어 있습니다.`);if(member&&blockedBySchedule(date,member))issues.push(`${member}은(는) ${date}에 연가/교육/기타 일정이 있어 출장 배정이 불가합니다.`)})})}return [...new Set(issues)]}
+function formIssues(){const f=currentTripForm(),issues=[],members=f.members.filter(Boolean);if(!f.tripDate||!f.endDate||!f.docNo||!f.vehicle||!f.destination||!f.outlet||!f.task)issues.push('시작일, 종료일, 문서번호, 차량, 사업장명, 배출구, 시험내용은 필수입니다.');if(f.endDate<f.tripDate)issues.push('출장 종료일은 시작일보다 빠를 수 없습니다.');if(members.length<2)issues.push('출장건당 인원은 최소 2명 이상이어야 합니다.');if(new Set(members).size!==members.length)issues.push('출장 인원은 서로 달라야 합니다.');if(f.tripDate){const sd=new Date(f.tripDate),ed=new Date(f.endDate||f.tripDate);if(sd.getDay()===0||sd.getDay()===6)issues.push(`출장 시작일(${f.tripDate})은 주말이라 배정 불가합니다.`);if(f.endDate&&f.endDate!==f.tripDate&&(ed.getDay()===0||ed.getDay()===6))issues.push(`출장 종료일(${f.endDate})은 주말이라 배정 불가합니다.`);}if(f.tripDate&&f.endDate){eachDateInRange(f.tripDate,f.endDate).forEach(date=>{if(isHolidayDate(date))issues.push(`${date}은(는) 공휴일이라 출장 배정이 불가합니다.`);if(f.vehicle&&vehicleConflict(date,f.vehicle))issues.push(`${date}에 선택한 차량은 이미 배정되어 있습니다.`);members.forEach(member=>{if(member&&memberConflict(date,member))issues.push(`${member}은(는) ${date}에 다른 출장건에 배정되어 있습니다.`);if(member&&blockedBySchedule(date,member))issues.push(`${member}은(는) ${date}에 연가/교육/기타 일정이 있어 출장 배정이 불가합니다.`)})})}return [...new Set(issues)]}
 function renderIssueBox(){const box=document.getElementById('tripIssueBox');const issues=formIssues();box.innerHTML=!issues.length?'<div class="ok">✓ 등록 가능합니다.</div>':issues.map(x=>`<div class="danger">⚠ ${x}</div>`).join('');document.getElementById('addTripBtn').disabled=issues.length>0}
 function scheduleIssueBox(){clearTimeout(issueBoxTimer);issueBoxTimer=setTimeout(renderIssueBox,120)}
 function syncTripToDoc(trip){
@@ -2996,7 +2997,13 @@ function showAvailableInfo(dateStr){
   
   alert(`${dateStr} 가능 현황\n\n차량: ${availableVehicles||'없음'}\n\n인원: ${availablePeople||'없음'}`);
 }
-function renderWeekBoards(){const container=document.getElementById('weekBoards');container.innerHTML='';const trips=filteredTrips();buildWeeks(state.year,state.month).forEach((week,idx)=>{const board=document.createElement('div');board.className='week-board';const top=document.createElement('div');top.className='week-top';const w=document.createElement('div');w.textContent=`${idx+1}주차`;top.appendChild(w);week.forEach(d=>{const dateKey=ymd(d);const c=document.createElement('div');c.textContent=`${d.getMonth()+1}/${d.getDate()} (${WEEKDAYS[d.getDay()]})`;if(isHolidayDate(dateKey))c.classList.add('is-holiday');if(d.getMonth()+1!==state.month)c.classList.add('out-month-h');const dayOfWeek=d.getDay();if(dayOfWeek===0||dayOfWeek===6){c.style.color='#ef4444';c.style.fontWeight='600';}top.appendChild(c)});board.appendChild(top);VEHICLES.forEach(vehicle=>{const row=document.createElement('div');row.className='vehicle-row';const label=document.createElement('div');label.className='vehicle-label';label.textContent=vehicle.name;row.appendChild(label);week.forEach(day=>{const cell=document.createElement('div');cell.className='cell'+(day.getMonth()+1!==state.month?' out-month':'');const dateStr=ymd(day);cell.onclick=()=>{state.selectedDate=dateStr;saveState();renderDetails()};cell.ondblclick=()=>{showAvailableInfo(dateStr)};row.appendChild(cell)});const bars=document.createElement('div');bars.className='bars';const vehicleTrips=trips.filter(t=>t.vehicle===vehicle.id);const tripGroups=new Map();vehicleTrips.forEach(trip=>{const weekStart=ymd(week[0]),weekEnd=ymd(week[6]);if((trip.endDate||trip.tripDate)<weekStart||trip.tripDate>weekEnd)return;const keys=eachDateInRange(weekStart,weekEnd);const startIndex=Math.max(0,keys.indexOf(trip.tripDate));const endIndex=Math.min(6,keys.indexOf(trip.endDate||trip.tripDate));const groupKey=`${trip.tripDate}|${trip.endDate}|${(trip.members||[]).join(',')}|${startIndex}|${endIndex}`;if(!tripGroups.has(groupKey)){tripGroups.set(groupKey,{trips:[],startIndex,endIndex,tripDate:trip.tripDate,endDate:trip.endDate,weekStart,weekEnd,members:trip.members})}tripGroups.get(groupKey).trips.push(trip)});tripGroups.forEach(group=>{const bar=document.createElement('div');bar.className=`bar ${vehicle.cls}`;bar.style.left=`calc(${(group.startIndex/7)*100}% + 4px)`;bar.style.width=`calc(${((group.endIndex-group.startIndex+1)/7)*100}% - 8px)`;if(group.tripDate<group.weekStart)bar.classList.add('cont-left');if((group.endDate||group.tripDate)>group.weekEnd)bar.classList.add('cont-right');const destinations=group.trips.map(t=>`${t.destination} ${t.outlet?'#'+t.outlet:''} ${t.testItem?'('+t.testItem+')':''}`).join('<br>');bar.innerHTML=`<div class="t1">${destinations}</div><div class="t3">${(group.members||[]).filter(Boolean).join(', ')}</div>`;bar.ondblclick=e=>{e.stopPropagation();if(group.trips.length===1){openTripModal(group.trips[0].id)}else{openMultiTripModal(group.trips.map(t=>t.id))}};bars.appendChild(bar)});row.appendChild(bars);board.appendChild(row)});const scheduleRow=document.createElement('div');scheduleRow.className='schedule-row';const sLabel=document.createElement('div');sLabel.className='schedule-label';sLabel.textContent='연가 등';scheduleRow.appendChild(sLabel);week.forEach(day=>{const cell=document.createElement('div');cell.className='schedule-cell'+(day.getMonth()+1!==state.month?' out-month':'');cell.textContent=scheduleSummaryForDate(ymd(day));scheduleRow.appendChild(cell)});board.appendChild(scheduleRow);const holidayLayer=document.createElement('div');holidayLayer.className='holiday-overlay';week.forEach((day,i)=>{const holiday=schedulesForDate(ymd(day)).find(s=>s.type==='holiday');if(!holiday)return;const bar=document.createElement('div');bar.className='holiday-bar';bar.style.left=`calc(${(i/7)*100}% + 4px)`;bar.style.width=`calc(${(1/7)*100}% - 8px)`;bar.textContent=holiday.name||'공휴일';holidayLayer.appendChild(bar)});board.style.position='relative';board.appendChild(holidayLayer);container.appendChild(board)})}
+function renderWeekBoards(){const container=document.getElementById('weekBoards');container.innerHTML='';const trips=filteredTrips();buildWeeks(state.year,state.month).forEach((week,idx)=>{const board=document.createElement('div');board.className='week-board';const top=document.createElement('div');top.className='week-top';const w=document.createElement('div');w.textContent=`${idx+1}주차`;top.appendChild(w);week.forEach(d=>{const dateKey=ymd(d);const c=document.createElement('div');c.textContent=`${d.getMonth()+1}/${d.getDate()} (${WEEKDAYS[d.getDay()]})`;if(isHolidayDate(dateKey))c.classList.add('is-holiday');if(d.getMonth()+1!==state.month)c.classList.add('out-month-h');const dayOfWeek=d.getDay();if(dayOfWeek===0||dayOfWeek===6){c.style.color='#ef4444';c.style.fontWeight='600';}top.appendChild(c)});board.appendChild(top);VEHICLES.forEach(vehicle=>{const row=document.createElement('div');row.className='vehicle-row';const label=document.createElement('div');label.className='vehicle-label';label.textContent=vehicle.name;row.appendChild(label);week.forEach(day=>{const cell=document.createElement('div');cell.className='cell'+(day.getMonth()+1!==state.month?' out-month':'');const dateStr=ymd(day);cell.onclick=()=>{state.selectedDate=dateStr;saveState();renderDetails()};cell.ondblclick=()=>{showAvailableInfo(dateStr)};row.appendChild(cell)});const bars=document.createElement('div');bars.className='bars';const vehicleTrips=trips.filter(t=>t.vehicle===vehicle.id);const tripGroups=new Map();vehicleTrips.forEach(trip=>{const weekStart=ymd(week[0]),weekEnd=ymd(week[6]);if((trip.endDate||trip.tripDate)<weekStart||trip.tripDate>weekEnd)return;const keys=eachDateInRange(weekStart,weekEnd);const startIndex=Math.max(0,keys.indexOf(trip.tripDate));const endIndex=Math.min(6,keys.indexOf(trip.endDate||trip.tripDate));
+// 같은 출장자 구성이면 기존 그룹에 합침 (연속/1박2일 묶음 표시)
+const membersKey=(trip.members||[]).slice().sort().join(',');
+let merged=false;
+tripGroups.forEach((group,gKey)=>{if(merged)return;const gMembersKey=(group.members||[]).slice().sort().join(',');if(gMembersKey===membersKey){// 날짜가 연속되거나 겹치면 합침
+const gStart=keys.indexOf(group.tripDate)<0?0:keys.indexOf(group.tripDate);const gEnd=keys.indexOf(group.endDate||group.tripDate)<0?6:keys.indexOf(group.endDate||group.tripDate);if(Math.abs(startIndex-gEnd)<=1||Math.abs(endIndex-gStart)<=1||startIndex<=gEnd&&endIndex>=gStart){group.startIndex=Math.min(group.startIndex,startIndex);group.endIndex=Math.max(group.endIndex,endIndex);if(trip.tripDate<group.tripDate)group.tripDate=trip.tripDate;if((trip.endDate||trip.tripDate)>(group.endDate||group.tripDate))group.endDate=trip.endDate||trip.tripDate;group.trips.push(trip);merged=true;}}});
+if(!merged){const groupKey=`${trip.tripDate}|${trip.endDate}|${membersKey}`;tripGroups.set(groupKey,{trips:[trip],startIndex,endIndex,tripDate:trip.tripDate,endDate:trip.endDate,weekStart,weekEnd,members:trip.members});}});tripGroups.forEach(group=>{const bar=document.createElement('div');bar.className=`bar ${vehicle.cls}`;bar.style.left=`calc(${(group.startIndex/7)*100}% + 4px)`;bar.style.width=`calc(${((group.endIndex-group.startIndex+1)/7)*100}% - 8px)`;if(group.tripDate<group.weekStart)bar.classList.add('cont-left');if((group.endDate||group.tripDate)>group.weekEnd)bar.classList.add('cont-right');const destinations=group.trips.map(t=>`${t.destination} ${t.outlet?'#'+t.outlet:''} ${t.testItem?'('+t.testItem+')':''}`).join('<br>');bar.innerHTML=`<div class="t1">${destinations}</div><div class="t3">${(group.members||[]).filter(Boolean).join(', ')}</div>`;bar.ondblclick=e=>{e.stopPropagation();if(group.trips.length===1){openTripModal(group.trips[0].id)}else{openMultiTripModal(group.trips.map(t=>t.id))}};bars.appendChild(bar)});row.appendChild(bars);board.appendChild(row)});const scheduleRow=document.createElement('div');scheduleRow.className='schedule-row';const sLabel=document.createElement('div');sLabel.className='schedule-label';sLabel.textContent='연가 등';scheduleRow.appendChild(sLabel);week.forEach(day=>{const cell=document.createElement('div');cell.className='schedule-cell'+(day.getMonth()+1!==state.month?' out-month':'');cell.textContent=scheduleSummaryForDate(ymd(day));scheduleRow.appendChild(cell)});board.appendChild(scheduleRow);const holidayLayer=document.createElement('div');holidayLayer.className='holiday-overlay';week.forEach((day,i)=>{const holiday=schedulesForDate(ymd(day)).find(s=>s.type==='holiday');if(!holiday)return;const bar=document.createElement('div');bar.className='holiday-bar';bar.style.left=`calc(${(i/7)*100}% + 4px)`;bar.style.width=`calc(${(1/7)*100}% - 8px)`;bar.textContent=holiday.name||'공휴일';holidayLayer.appendChild(bar)});board.style.position='relative';board.appendChild(holidayLayer);container.appendChild(board)})}
 function renderDetails(){
   document.getElementById('detailTitle').textContent=`${state.selectedDate} 상세`;
   
@@ -3804,7 +3811,7 @@ document.getElementById('ghQuickUploadBtn').onclick = () => {
   }
 };
 
-document.getElementById('showAiBtn').onclick=()=>{switchTab('ai');};
+document.getElementById('showAiBtn').onclick=()=>{switchTab('ai'); aiRestoreChat();};
 
 // ══════════════════════════════════════════════
 // 🤖 Claude AI 출장 자동 배정 시스템
@@ -3816,8 +3823,10 @@ document.getElementById('showAiBtn').onclick=()=>{switchTab('ai');};
   if(saved){ document.getElementById('aiApiKey').value=saved; document.getElementById('aiKeyStatus').textContent='✅ 저장된 키 로드됨'; }
 })();
 function saveAiApiKey(){
-  const k=document.getElementById('aiApiKey').value.trim();
+  const raw=document.getElementById('aiApiKey').value;
+  const k=raw.replace(/[^\x20-\x7E]/g,'').trim();
   if(!k){alert('API Key를 입력하세요.');return;}
+  document.getElementById('aiApiKey').value=k;
   localStorage.setItem('ai-api-key',k);
   document.getElementById('aiKeyStatus').textContent='✅ 저장 완료';
   setTimeout(()=>document.getElementById('aiKeyStatus').textContent='',2000);
@@ -3828,8 +3837,14 @@ function toggleAiKeyVisibility(){
 }
 
 // ── 채팅 메시지 렌더 ──
-const aiHistory=[];  // {role, content}[]
-function aiAppendMsg(role,html,raw){
+const AI_HISTORY_KEY = 'ai-chat-history-v1';
+const aiHistory = JSON.parse(localStorage.getItem(AI_HISTORY_KEY) || '[]');
+
+function aiSaveHistory(){
+  try{ localStorage.setItem(AI_HISTORY_KEY, JSON.stringify(aiHistory)); }catch(e){}
+}
+
+function aiAppendMsg(role, html, raw){
   const box=document.getElementById('aiChatBox');
   const wrap=document.createElement('div');
   wrap.style.cssText=`display:flex;flex-direction:column;align-items:${role==='user'?'flex-end':'flex-start'};`;
@@ -3844,33 +3859,83 @@ function aiAppendMsg(role,html,raw){
   return bubble;
 }
 
+// ── 새로고침 후 채팅 복원 (페이지 로드 시 자동 실행) ──
+let aiChatRestored = false;
+function aiRestoreChat(){
+  if(aiChatRestored) return;
+  aiChatRestored = true;
+  if(aiHistory.length===0) return;
+  aiHistory.forEach(m=>aiAppendMsg(m.role, m.content));
+  const box=document.getElementById('aiChatBox');
+  if(box) box.scrollTop=box.scrollHeight;
+}
+// 탭과 무관하게 페이지 로드되면 바로 복원
+document.addEventListener('DOMContentLoaded', aiRestoreChat);
+
+// ── 채팅 초기화 버튼 (헤더에 추가됨) ──
+function aiClearHistory(){
+  if(!confirm('채팅 내역을 모두 삭제할까요?')) return;
+  aiHistory.length=0;
+  aiSaveHistory();
+  aiChatRestored=false;
+  document.getElementById('aiChatBox').innerHTML='';
+}
+
 // ── 컨텍스트 구성 ──
+
+// ── 기본 규칙 (state.rules가 없어도 항상 적용) ──
+const DEFAULT_RULES = {
+  ranks: {
+    '차장': ['조성수'],
+    '과장': ['강훈희', '이병우', '신누리', '신현지'],
+    '대리': ['문숙', '유황준', '송철민', '장일웅', '정우진', '한동우'],
+    '주임': ['김민지', '윤석래', '권신혜', '이수현']
+  },
+  skill: {
+    '숙련자': ['강훈희', '이병우', '신누리', '신현지', '문숙', '장일웅'],
+    '중간숙련자': ['조성수', '유황준', '송철민', '정우진', '한동우', '윤석래', '김민지'],
+    '신입(중간숙련자급)': ['권신혜', '이수현']
+  },
+  tripComposition: '출장조는 보통 3명. 숙련자 1명 + 그외 2명 구성 원칙',
+  vehiclePriority: '시험항목에 먼지+HCl 모두 포함 시 카니발(5881) 우선. 그외 빈 차량 랜덤',
+  riskTripTiming: '사전위험성 출장건은 1~2주차 내 완료 원칙. 부득이 시 3주차까지 허용',
+  riskTripBundling: '사전위험성 출장건은 같은 지역이면 최대 2개 사업장까지 하루에 묶어서 진행 가능. 3개 이상은 불가',
+  distanceBundling: '당진·서산·태안 등 원거리 사업장은 같은 방향 출장건끼리 묶어 1박2일로 배정. 묶음 출장 시 같은 차량·같은 출장자가 숙박하며 연속 수행. tripDate와 endDate를 다르게 설정하고 members는 동일하게 구성',
+  deadline: '전건 6월 말까지 완료(부장님 지시). 결과통보일 1~2개월 전후로 출장 계획',
+  blockingSchedules: 'schedules 배열 참고'
+};
+
+// ── 기본 불가일정 (state.schedules가 없어도 항상 적용) ──
+const DEFAULT_SCHEDULES = [
+  { startDate:'2026-04-29', endDate:'2026-04-30', type:'교육', label:'실무교육(제천)', members:['조성수','정우진','한동우','권신혜','이수현'], allMembers:false, confirmed:true, note:'해당 인원 출장 배정 불가' },
+  { startDate:'2026-05-04', endDate:'2026-05-04', type:'연가', label:'신누리 연가', members:['신누리'], allMembers:false, confirmed:true, note:'연가' },
+  { startDate:'2026-05-06', endDate:'2026-05-08', type:'재택', label:'윤석래 재택(ISO교육)', members:['윤석래'], allMembers:false, confirmed:true, note:'출장 배정 불가' },
+  { startDate:'2026-05-11', endDate:'2026-05-11', type:'봉사활동', label:'전체 봉사활동(현충원)', members:[], allMembers:true, confirmed:true, note:'전체 인원 출장 배정 불가' },
+  { startDate:'2026-05-14', endDate:'2026-05-15', type:'워킹그룹', label:'워킹그룹(오송)', members:['이병우','정우진','권신혜'], allMembers:false, confirmed:true, note:'해당 3인 출장 배정 불가' },
+  { startDate:'2026-05-19', endDate:'2026-05-20', type:'행사', label:'⚠️[미정] 위험성평가 행사(서산)', members:[], allMembers:true, confirmed:false, note:'19~20일 또는 20~21일 미정. 전체 인원 출장 배정 불가' }
+];
+
 function buildAiContext(){
   const pendingDocs=(state.docs||[]).filter(d=>!d.completed&&!d.delayed);
-  const vehicles=[
-    {id:'5881',name:'카니발(하늘색)'},
-    {id:'2559',name:'쏘렌토 지하주차(초록색)'},
-    {id:'2555',name:'쏘렌토 지상주차(노란색)'}
-  ];
-  const travelers=state.travelers||[];
+  const travelers=state.travelers&&state.travelers.length>0
+    ? state.travelers
+    : ['강훈희','문숙','이수현','조성수','정우진','신누리','김민지','유황준','이병우','윤석래','송철민','장일웅','신현지','권신혜','한동우','김철수'];
   const existingTrips=(state.trips||[]).filter(t=>t.status!=='completed');
-  const schedules=state.schedules||[];
-  const rules=state.rules||{};
+
+  // state에 있으면 우선, 없으면 기본값 사용
+  const rules = (state.rules && state.rules.ranks) ? state.rules : DEFAULT_RULES;
+  const schedules = (state.schedules && state.schedules.length>0) ? state.schedules : DEFAULT_SCHEDULES;
 
   // 직급표 문자열 생성
-  const ranksStr=rules.ranks
-    ? Object.entries(rules.ranks).map(([r,ms])=>`  ${r}: ${ms.join(', ')}`).join('\n')
-    : '(정보 없음)';
+  const ranksStr = Object.entries(rules.ranks).map(([r,ms])=>`  ${r}: ${ms.join(', ')}`).join('\n');
 
   // 숙련도 문자열 생성
-  const skillStr=rules.skill
-    ? Object.entries(rules.skill).map(([s,ms])=>`  ${s}: ${ms.join(', ')}`).join('\n')
-    : '(정보 없음)';
+  const skillStr = Object.entries(rules.skill).map(([s,ms])=>`  ${s}: ${ms.join(', ')}`).join('\n');
 
   // 불가일정 문자열 생성
-  const blocksStr=schedules.length===0?'없음':schedules.map(s=>{
-    const who=s.allMembers?'전체 인원':(s.members||[]).join(', ');
-    const conf=s.confirmed?'':'⚠️[미정] ';
+  const blocksStr = schedules.map(s=>{
+    const who = s.allMembers ? '전체 인원' : (s.members||[]).join(', ');
+    const conf = s.confirmed ? '' : '⚠️[미정] ';
     return `  ${conf}${s.startDate}~${s.endDate} [${s.type}] ${s.label} / 대상: ${who}\n    → ${s.note}`;
   }).join('\n');
 
@@ -3895,12 +3960,17 @@ ${rules.tripComposition||'숙련자 1명 + 그외 2명, 총 3명'}
 - 2555 쏘렌토 지상주차(노란색)
 차량 배정 규칙: ${rules.vehiclePriority||''}
 
-## 원거리 묶음 배정
-${rules.distanceBundling||'당진·서산·태안 등 원거리는 같은 방향끼리 묶어 배정'}
+## 원거리 묶음 배정 (1박2일)
+${rules.distanceBundling}
+- 묶음 배정 시 JSON에서 첫 번째 사업장: tripDate=출발일, endDate=둘째날
+- 두 번째 사업장(같은 출장): tripDate=둘째날, endDate=둘째날, vehicle·members 동일하게 설정
+- 예시: 서산A(5/7~5/8) + 서산B(5/8~5/8) → 같은 차량·같은 출장자, 숙박 1박
 
 ## 사전위험성 출장 규칙
-- 일정: ${rules.riskTripTiming||'1~2주차 완료 원칙'}
-- 묶음: ${rules.riskTripBundling||'비슷한 지역 사업장과 묶어서 진행 가능'}
+- 우선순위: ${rules.riskTripTiming}
+- 당일 묶음: ${rules.riskTripBundling}
+- 빈칸=필요, 채워져있으면=완료로 엑셀에서 파싱됨
+- 사전위험성:필요 건을 같은 날 같은 지역에서 2개까지 묶을 경우 tripDate·endDate·vehicle·members 동일하게 2개 JSON 항목으로 표현
 
 ## 마감 기한
 ${rules.deadline||'전건 6월 말까지 완료'}
@@ -3912,7 +3982,13 @@ ${blocksStr}
 ${existingTrips.length===0?'없음':existingTrips.map(t=>`- ${t.tripDate}~${t.endDate||t.tripDate} [${t.vehicle}] ${t.destination}/${t.outlet} 담당:${t.owner} 출장자:${(t.members||[]).join(',')}`).join('\n')}
 
 ## 배정 대기 문서 (${pendingDocs.length}건)
-${pendingDocs.length===0?'없음':pendingDocs.map(d=>`- docNo:${d.docNo} planMonth:${d.planMonth} 지역:${d.region} 담당:${d.owner} 사업장:${d.destination} 배출구:${d.outlet} 시험:${d.testItem} 업무:${d.task} 납기:${d.resultDueDate}`).join('\n')}
+${pendingDocs.length===0?'없음':pendingDocs.map(d=>{
+  const risk=d.riskAssessment==='필요'?'⚠️[사전위험성 필요]':'';
+  return `- ${risk} docNo:${d.docNo} planMonth:${d.planMonth} 지역:${d.region} 담당:${d.owner} 사업장:${d.destination} 배출구:${d.outlet} 시험:${d.testItem} 업무:${d.task} 납기:${d.resultDueDate} 사전위험성:${d.riskAssessment||'완료/해당없음'}`;
+}).join('\n')}
+
+## 사전위험성 출장 대기 건 (별도 강조)
+${(()=>{const r=pendingDocs.filter(d=>d.riskAssessment==='필요');return r.length===0?'없음':r.map(d=>`⚠️ ${d.destination} / ${d.outlet} / 담당:${d.owner} / 납기:${d.resultDueDate} → 1~2주차 내 우선 배정 필요`).join('\n');})()}
 
 ## 핵심 배정 규칙 (절대 준수)
 1. 차량 1대에 하루 최대 1건 (중복 불가)
@@ -3923,6 +3999,9 @@ ${pendingDocs.length===0?'없음':pendingDocs.map(d=>`- docNo:${d.docNo} planMon
 6. 주말(토·일), 공휴일 배정 불가
 7. 이미 배정된 날짜·차량·출장자 중복 금지
 8. planMonth 기준 월 내 배정 원칙, 납기일과 마감기한 함께 고려
+9. 사전위험성:필요 건은 해당 월 1~2주차 내 반드시 우선 배정 (부득이 시 3주차까지)
+10. 사전위험성 건은 같은 지역이면 하루에 최대 2개 사업장까지 묶기 가능 (3개 이상 불가). 묶을 경우 tripDate·endDate·vehicle·members 동일한 JSON 항목 2개로 표현
+11. 원거리 1박2일 묶음 시 같은 차량·같은 출장자가 숙박하며 연속 수행. 첫째날 사업장과 둘째날 사업장을 별도 JSON 항목으로 표현하되 vehicle·members 동일하게 설정
 
 ## 응답 형식
 배정 요청 시 반드시 JSON 배열만 반환하세요 (설명·마크다운 불필요):
@@ -3958,6 +4037,7 @@ async function aiSend(){
   inp.value='';
   aiAppendMsg('user',userMsg);
   aiHistory.push({role:'user',content:userMsg});
+  aiSaveHistory();
 
   // 로딩 버블
   const box=document.getElementById('aiChatBox');
@@ -3974,25 +4054,33 @@ async function aiSend(){
 
   try{
     const sysPrompt=buildAiContext();
+    // API Key에서 ASCII 범위 밖 문자 제거 (한글/특수문자 방지)
+    const safeKey = apiKey.replace(/[^\x20-\x7E]/g, '').trim();
+    if(!safeKey){ alert('API Key에 유효하지 않은 문자가 포함되어 있습니다.\n콘솔에서 키를 다시 복사해서 붙여넣어 주세요.'); document.getElementById('aiSendBtn').disabled=false; return; }
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
-        'x-api-key':apiKey,
+        'x-api-key':safeKey,
         'anthropic-version':'2023-06-01',
         'anthropic-dangerous-direct-browser-access':'true'
       },
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:4096,
+        model:'claude-sonnet-4-6',
+        max_tokens:8000,
         system:sysPrompt,
         messages:aiHistory
       })
     });
     const data=await res.json();
-    if(data.error){throw new Error(data.error.message||JSON.stringify(data.error));}
+    console.log('API 응답 상태:', res.status, data);
+    if(!res.ok || data.error){
+      const errDetail = data.error?.message || data.error?.type || JSON.stringify(data);
+      throw new Error(`[HTTP ${res.status}] ${errDetail}`);
+    }
     const reply=data.content.map(c=>c.text||'').join('');
     aiHistory.push({role:'assistant',content:reply});
+    aiSaveHistory();
 
     loadWrap.remove();
 
@@ -4000,20 +4088,44 @@ async function aiSend(){
     const jsonMatch=reply.match(/\[[\s\S]*\]/);
     if(jsonMatch){
       try{
-        const plans=JSON.parse(jsonMatch[0]);
-        if(Array.isArray(plans)&&plans.length>0&&plans[0].docNo){
+        // 중복 key 등 오류 대비: 각 객체별로 마지막 값 우선 적용
+        const raw=jsonMatch[0];
+        let plans=JSON.parse(raw);
+        if(Array.isArray(plans)&&plans.length>0&&plans[0].docNo!==undefined){
           aiAppendMsg('assistant',`✅ ${plans.length}건의 배정안을 생성했습니다. 아래 테이블에서 확인 후 등록하세요.`);
           aiShowResult(plans);
         }else{
           aiAppendMsg('assistant',reply);
         }
-      }catch(e){ aiAppendMsg('assistant',reply); }
+      }catch(e){
+        // JSON 파싱 실패 시 객체 단위로 하나씩 파싱 시도
+        try{
+          const objMatches=[...reply.matchAll(/\{[\s\S]*?\}(?=\s*,|\s*\])/g)];
+          const plans=objMatches.map(m=>{
+            try{ return JSON.parse(m[0]); }catch(e2){ return null; }
+          }).filter(Boolean).filter(p=>p.destination||p.docNo);
+          if(plans.length>0){
+            aiAppendMsg('assistant',`⚠️ JSON 일부 파싱 성공: ${plans.length}건. 누락된 항목이 있을 수 있으니 확인 후 등록하세요.`);
+            aiShowResult(plans);
+          }else{
+            aiAppendMsg('assistant',reply+'\n\n⚠️ 배정안 테이블 변환 실패. 위 내용을 참고해 수동으로 등록해주세요.');
+          }
+        }catch(e3){
+          aiAppendMsg('assistant',reply);
+        }
+      }
     }else{
       aiAppendMsg('assistant',reply);
     }
   }catch(err){
     loadWrap.remove();
-    aiAppendMsg('assistant',`❌ 오류: ${err.message}\n\nAPI Key를 확인하거나 네트워크 상태를 점검하세요.`);
+    console.error('AI API 오류 상세:', err);
+    // HTTP 응답 에러면 상세 내용 표시
+    let errMsg = err.message || String(err);
+    if(errMsg.includes('Failed to fetch') || errMsg.includes('NetworkError') || errMsg === 'Failed to fetch'){
+      errMsg = 'API 서버에 연결할 수 없습니다.\n\n가능한 원인:\n• 인터넷 연결 확인\n• API Key가 올바른지 확인 (sk-ant-api03-... 형식)\n• 브라우저 콘솔(F12)에서 상세 오류 확인';
+    }
+    aiAppendMsg('assistant',`❌ 오류: ${errMsg}`);
   }finally{
     document.getElementById('aiSendBtn').disabled=false;
     inp.focus();
@@ -4080,6 +4192,18 @@ function aiRegisterAll(){
     if(!confirm(`⚠️ 아래 충돌이 감지되었습니다. 그래도 등록하시겠습니까?\n\n${conflicts.slice(0,8).join('\n')}${conflicts.length>8?'\n...('+conflicts.length+'건 전체)':''}`))return;
   }
 
+  // 주말 체크
+  const weekendConflicts=[];
+  selected.forEach(p=>{
+    getDatesInRange(p.tripDate,p.endDate||p.tripDate).forEach(d=>{
+      const day=new Date(d).getDay();
+      if(day===0||day===6) weekendConflicts.push(`${p.destination} ${d} (주말)`);
+    });
+  });
+  if(weekendConflicts.length>0){
+    if(!confirm(`⚠️ 주말에 배정된 항목이 있습니다. 그래도 등록하시겠습니까?\n\n${weekendConflicts.join('\n')}`))return;
+  }
+
   let maxId=Math.max(0,...(state.trips||[]).map(t=>t.id||0));
   const newTrips=selected.map(p=>{
     maxId++;
@@ -4106,6 +4230,8 @@ function aiRegisterAll(){
   });
 
   state.trips=[...(state.trips||[]),...newTrips];
+  // ★ 문서 리스트 연동 (진행중 상태 반영)
+  newTrips.forEach(t=>{ if(typeof syncTripToDoc==='function') syncTripToDoc(t); });
   saveState();
   renderAll();
   aiClearResult();
