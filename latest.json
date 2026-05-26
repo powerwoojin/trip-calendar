@@ -1,8 +1,62 @@
 {
-  "version": "2026-05-26T06:28:36.515Z",
+  "version": "2026-05-26T09:27:01.596Z",
   "updatedBy": "정우진",
-  "updateNote": "업데이트",
+  "updateNote": "변경",
   "trips": [
+    {
+      "outlet": "1",
+      "testItem": "유속",
+      "planMonth": "2026-06",
+      "region": "충남 서천",
+      "owner": "조성수",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "조성수",
+        "장일웅",
+        "윤석래",
+        "",
+        "",
+        ""
+      ],
+      "id": 1779786620267,
+      "tripDate": "2026-06-19",
+      "endDate": "2026-06-19",
+      "docNo": "1692",
+      "vehicle": "2559",
+      "destination": "한국중부발전㈜ 신서천발전본부",
+      "task": "유량계 동작불량 발생에 따른 제작사 반출 점검 및 수리 등 필요"
+    },
+    {
+      "outlet": "1",
+      "testItem": "먼지",
+      "planMonth": "2026-06",
+      "region": "세종",
+      "owner": "이수현",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "이수현",
+        "장일웅",
+        "신누리",
+        "",
+        "",
+        ""
+      ],
+      "id": 1779786594330,
+      "tripDate": "2026-06-18",
+      "endDate": "2026-06-18",
+      "docNo": "2938",
+      "vehicle": "5881",
+      "destination": "㈜동양에이케이코리아 3공장",
+      "task": "먼지 측정기기의 지속적인 상태표시(동작불량) 발생에 따른 정밀점검 필요"
+    },
     {
       "outlet": "13, 14, 15, 19, 20, 21, 38, 57, 58, 59",
       "testItem": "신규, 전항목",
@@ -839,33 +893,6 @@
       "docNo": "1717",
       "destination": "(주)풍농 장항공장",
       "task": "자료수집기의 지속적인 유사 고장 발생으로 신품 교체 필요"
-    },
-    {
-      "outlet": "1",
-      "testItem": "먼지",
-      "planMonth": "2026-06",
-      "region": "세종",
-      "owner": "이수현",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이수현",
-        "장일웅",
-        "신누리",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779715063304,
-      "tripDate": "2026-06-18",
-      "endDate": "2026-06-19",
-      "docNo": "2938",
-      "vehicle": "5881",
-      "destination": "㈜동양에이케이코리아 3공장",
-      "task": "먼지 측정기기의 지속적인 상태표시(동작불량) 발생에 따른 정밀점검 필요"
     },
     {
       "outlet": "1",
@@ -4053,7 +4080,7 @@
       "completedAt": "",
       "riskAssessment": "완료",
       "completeMemo": "",
-      "planMonth": "2026-07",
+      "planMonth": "2026-06",
       "_origRiskAssessment": "완료"
     },
     {
@@ -4253,7 +4280,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(6월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
