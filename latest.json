@@ -1,7 +1,7 @@
 {
-  "version": "2026-05-26T04:41:31.617Z",
+  "version": "2026-05-26T06:28:36.515Z",
   "updatedBy": "정우진",
-  "updateNote": "업데이트3",
+  "updateNote": "업데이트",
   "trips": [
     {
       "outlet": "13, 14, 15, 19, 20, 21, 38, 57, 58, 59",
@@ -1244,60 +1244,6 @@
       "vehicle": "2559",
       "destination": "㈜엘지에너지솔루션 오창2공장",
       "task": "유속계 판넬 차압계 및 레귤레이터 교체"
-    },
-    {
-      "outlet": "8",
-      "testItem": "먼지, 통합",
-      "planMonth": "2026-06",
-      "region": "충남 서산",
-      "owner": "권신혜",
-      "note": "",
-      "risk": true,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "권신혜",
-        "강훈희",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779353833934.2878,
-      "tripDate": "2026-06-05",
-      "endDate": "2026-06-05",
-      "vehicle": "2555",
-      "docNo": "2533",
-      "destination": "씨지앤대산전력㈜_바이오매스",
-      "task": "대정비 후 재가동 상황에서의 간헐적 먼지 초과 발생 → 제조사 정밀 점검 필요"
-    },
-    {
-      "outlet": "8",
-      "testItem": "먼지, 통합",
-      "planMonth": "2026-06",
-      "region": "충남 서산",
-      "owner": "권신혜",
-      "note": "",
-      "risk": true,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "권신혜",
-        "강훈희",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779353833933.1006,
-      "tripDate": "2026-06-05",
-      "endDate": "2026-06-05",
-      "vehicle": "2555",
-      "docNo": "984",
-      "destination": "씨지앤대산전력㈜_바이오매스",
-      "task": "먼지 항목의 비정상 측정(헌팅) 발생에 따른 기기 교체"
     },
     {
       "outlet": "6",
