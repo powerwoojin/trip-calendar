@@ -1,7 +1,7 @@
 {
-  "version": "2026-05-25T15:10:15.146Z",
+  "version": "2026-05-26T00:08:57.989Z",
   "updatedBy": "정우진",
-  "updateNote": "출장 업데이트(26. 5. 27.)",
+  "updateNote": "출장 업데이트(26. 5. 26.)",
   "trips": [
     {
       "outlet": "63~67",
@@ -2594,7 +2594,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(6월)",
       "planMonth": "2026-07",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -3816,7 +3816,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(6월)",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -4284,7 +4284,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(7월)",
       "planMonth": "2026-07",
       "riskMonth": "2026-07",
       "_origRiskAssessment": "필요"
@@ -4445,7 +4445,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(6월)",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
