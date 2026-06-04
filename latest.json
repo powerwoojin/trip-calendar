@@ -1,7 +1,7 @@
 {
-  "version": "2026-06-02T09:41:46.308Z",
-  "updatedBy": "정우진",
-  "updateNote": "2026. 6. 2. 데이터 업데이트",
+  "version": "2026-06-04T13:06:26.597Z",
+  "updatedBy": "강훈희",
+  "updateNote": "2026. 6. 4. 데이터 업데이트",
   "trips": [
     {
       "outlet": "1",
@@ -5349,6 +5349,16 @@
     "한동우",
     "처장님",
     "부장님"
+  ],
+  "tempVehicles": [
+    {
+      "id": "8427",
+      "name": "8427 분석부",
+      "short": "분석부",
+      "cls": "temp",
+      "startDate": "2026-06-18",
+      "endDate": "2026-06-19"
+    }
   ],
   "updateHistory": [
     {
