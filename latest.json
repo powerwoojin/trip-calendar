@@ -1,8 +1,204 @@
 {
-  "version": "2026-06-04T13:06:26.597Z",
-  "updatedBy": "강훈희",
-  "updateNote": "2026. 6. 4. 데이터 업데이트",
+  "version": "2026-06-05T09:19:17.945Z",
+  "updatedBy": "정우진",
+  "updateNote": "나침반 바늘은 정확한 방향을 가리키기 전에 항상 흔들린다",
   "trips": [
+    {
+      "outlet": "19",
+      "testItem": "먼지, 가스상, 유속, 수분",
+      "planMonth": "2026-06",
+      "region": "충남 보령",
+      "owner": "유황준",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "강훈희",
+        "문숙",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780651063670,
+      "tripDate": "2026-06-15",
+      "endDate": "2026-06-16",
+      "docNo": "162",
+      "vehicle": "2559",
+      "destination": "한국중부발전(주)신보령발전본부",
+      "task": "안전개선 확인 및 서류 검토, 통합, 확인검사 이후 나머지 시험항목 예정(먼지, 가스상, 유속, 수분)",
+      "round": 4
+    },
+    {
+      "outlet": "19",
+      "testItem": "먼지, 가스상, 유속, 수분",
+      "planMonth": "2026-06",
+      "region": "충남 보령",
+      "owner": "유황준",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "유황준",
+        "",
+        "정우진",
+        "김민지",
+        "",
+        ""
+      ],
+      "id": 1780651039367,
+      "tripDate": "2026-06-15",
+      "endDate": "2026-06-16",
+      "docNo": "162",
+      "vehicle": "5881",
+      "destination": "한국중부발전(주)신보령발전본부",
+      "task": "안전개선 확인 및 서류 검토, 통합, 확인검사 이후 나머지 시험항목 예정(먼지, 가스상, 유속, 수분)",
+      "round": 3
+    },
+    {
+      "outlet": "1",
+      "testItem": "가스상, HCl, 통합",
+      "planMonth": "2026-07",
+      "region": "충북 진천",
+      "owner": "정우진",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "정우진",
+        "신현지",
+        "김민지",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780650883221,
+      "tripDate": "2026-07-01",
+      "endDate": "2026-07-02",
+      "docNo": "2317",
+      "vehicle": "2555",
+      "destination": "㈜에너지 진천",
+      "task": "측정기 교체(D/L 포함)",
+      "round": 1
+    },
+    {
+      "outlet": "1",
+      "testItem": "먼지",
+      "planMonth": "2026-07",
+      "region": "세종",
+      "owner": "이수현",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "이수현",
+        "장일웅",
+        "신누리",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780650795822,
+      "tripDate": "2026-07-02",
+      "endDate": "2026-07-02",
+      "docNo": "2938",
+      "vehicle": "5881",
+      "destination": "㈜동양에이케이코리아 3공장",
+      "task": "먼지 측정기기의 지속적인 상태표시(동작불량) 발생에 따른 정밀점검 필요",
+      "round": 1
+    },
+    {
+      "outlet": "1",
+      "testItem": "HCl",
+      "planMonth": "2026-06",
+      "region": "충북 청주",
+      "owner": "정우진",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "정우진",
+        "유황준",
+        "송철민",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780650523247,
+      "tripDate": "2026-06-12",
+      "endDate": "2026-06-12",
+      "docNo": "866",
+      "vehicle": "2555",
+      "destination": "청주시환경관리본부(하수처리과)",
+      "task": "cell 온도 이상으로 인한 점검 필요",
+      "round": 1
+    },
+    {
+      "outlet": "9",
+      "testItem": "유속",
+      "planMonth": "2026-06",
+      "region": "충북 청주",
+      "owner": "윤석래",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "윤석래",
+        "신현지",
+        "한동우",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780650516455,
+      "tripDate": "2026-06-12",
+      "endDate": "2026-06-12",
+      "docNo": "4126",
+      "vehicle": "2559",
+      "destination": "㈜엘지에너지솔루션 오창2공장",
+      "task": "유속계 판넬 차압계 및 레귤레이터 교체",
+      "round": 1
+    },
+    {
+      "outlet": "1",
+      "testItem": "가스상",
+      "planMonth": "2026-06",
+      "region": "세종",
+      "owner": "이병우",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "이병우",
+        "장일웅",
+        "이수현",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780650504119,
+      "tripDate": "2026-06-12",
+      "endDate": "2026-06-12",
+      "docNo": "2723",
+      "vehicle": "xxxx",
+      "destination": "세종그린파워(주)",
+      "task": "가스상 분석기 비정상 측정에 따른 정밀점검 필요(반출)",
+      "round": 1
+    },
     {
       "outlet": "1",
       "testItem": "전항목",
@@ -29,34 +225,6 @@
       "vehicle": "2555",
       "destination": "성우알맥㈜",
       "task": "질산미스트 발생 억제공사를 위한 TMS기기 탈거 필요",
-      "round": 1
-    },
-    {
-      "outlet": "1",
-      "testItem": "가스상",
-      "planMonth": "2026-06",
-      "region": "충남 홍성",
-      "owner": "정우진",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "정우진",
-        "신누리",
-        "문숙",
-        "",
-        "",
-        ""
-      ],
-      "id": 1780391311582,
-      "tripDate": "2026-06-08",
-      "endDate": "2026-06-08",
-      "docNo": "22524",
-      "vehicle": "5881",
-      "destination": "㈜현성세라믹",
-      "task": "측정기기 반출 후 정비",
       "round": 1
     },
     {
@@ -185,14 +353,14 @@
       "members": [
         "권신혜",
         "이병우",
-        "문숙",
         "이수현",
+        "",
         "",
         ""
       ],
       "id": 1780390595950.7693,
       "tripDate": "2026-06-15",
-      "endDate": "2026-06-18",
+      "endDate": "2026-06-19",
       "vehicle": "2555",
       "docNo": "557",
       "destination": "에스케이하이닉스㈜ 청주4공장",
@@ -212,14 +380,14 @@
       "members": [
         "권신혜",
         "이병우",
-        "문숙",
         "이수현",
+        "",
         "",
         ""
       ],
       "id": 1780390595949.1707,
       "tripDate": "2026-06-15",
-      "endDate": "2026-06-18",
+      "endDate": "2026-06-19",
       "vehicle": "2555",
       "docNo": "1291",
       "destination": "에스케이하이닉스㈜ 청주4공장",
@@ -239,14 +407,14 @@
       "members": [
         "권신혜",
         "이병우",
-        "문숙",
         "이수현",
+        "",
         "",
         ""
       ],
       "id": 1780390595948.7349,
       "tripDate": "2026-06-15",
-      "endDate": "2026-06-18",
+      "endDate": "2026-06-19",
       "vehicle": "2555",
       "docNo": "901",
       "destination": "에스케이하이닉스㈜ 청주4공장",
@@ -266,14 +434,14 @@
       "members": [
         "권신혜",
         "이병우",
-        "문숙",
         "이수현",
+        "",
         "",
         ""
       ],
       "id": 1780390595947.1343,
       "tripDate": "2026-06-15",
-      "endDate": "2026-06-18",
+      "endDate": "2026-06-19",
       "vehicle": "2555",
       "docNo": "252",
       "destination": "에스케이하이닉스㈜ 청주4공장",
@@ -360,87 +528,6 @@
       "vehicle": "5881",
       "destination": "㈜삼기",
       "task": "여과집진시설 상부 교체(펄스 및 전기공사 등)"
-    },
-    {
-      "outlet": "1",
-      "testItem": "가스상",
-      "planMonth": "2026-06",
-      "region": "세종",
-      "owner": "이병우",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이병우",
-        "장일웅",
-        "이수현",
-        "",
-        "",
-        ""
-      ],
-      "id": 1780275325911,
-      "tripDate": "2026-06-12",
-      "endDate": "2026-06-12",
-      "docNo": "2723",
-      "vehicle": "2559",
-      "destination": "세종그린파워(주)",
-      "task": "가스상 분석기 비정상 측정에 따른 정밀점검 필요(반출)"
-    },
-    {
-      "outlet": "1",
-      "testItem": "먼지",
-      "planMonth": "2026-07",
-      "region": "세종",
-      "owner": "이수현",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이수현",
-        "장일웅",
-        "신누리",
-        "",
-        "",
-        ""
-      ],
-      "id": 1780275055383,
-      "tripDate": "2026-07-02",
-      "endDate": "2026-07-02",
-      "docNo": "2938",
-      "vehicle": "2555",
-      "destination": "㈜동양에이케이코리아 3공장",
-      "task": "먼지 측정기기의 지속적인 상태표시(동작불량) 발생에 따른 정밀점검 필요"
-    },
-    {
-      "outlet": "1",
-      "testItem": "가스상, HCl, 통합",
-      "planMonth": "2026-07",
-      "region": "충북 진천",
-      "owner": "정우진",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "정우진",
-        "신현지",
-        "윤석래",
-        "",
-        "",
-        ""
-      ],
-      "id": 1780274934042,
-      "tripDate": "2026-07-01",
-      "endDate": "2026-07-02",
-      "docNo": "2317",
-      "vehicle": "5881",
-      "destination": "㈜에너지 진천",
-      "task": "측정기 교체(D/L 포함)"
     },
     {
       "outlet": "9",
@@ -740,60 +827,6 @@
       "task": "신규부착"
     },
     {
-      "outlet": "1",
-      "testItem": "HCl",
-      "planMonth": "2026-06",
-      "region": "충북 청주",
-      "owner": "정우진",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "정우진",
-        "유황준",
-        "송철민",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779761861449,
-      "tripDate": "2026-06-12",
-      "endDate": "2026-06-12",
-      "docNo": "866",
-      "vehicle": "5881",
-      "destination": "청주시환경관리본부(하수처리과)",
-      "task": "cell 온도 이상으로 인한 점검 필요"
-    },
-    {
-      "outlet": "9",
-      "testItem": "유속",
-      "planMonth": "2026-06",
-      "region": "충북 청주",
-      "owner": "윤석래",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "윤석래",
-        "신현지",
-        "한동우",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779761850952,
-      "tripDate": "2026-06-12",
-      "endDate": "2026-06-12",
-      "docNo": "4126",
-      "vehicle": "2555",
-      "destination": "㈜엘지에너지솔루션 오창2공장",
-      "task": "유속계 판넬 차압계 및 레귤레이터 교체"
-    },
-    {
       "outlet": "8",
       "testItem": "먼지, 통합",
       "planMonth": "2026-06",
@@ -813,8 +846,8 @@
         ""
       ],
       "id": 1779761007417.6462,
-      "tripDate": "2026-06-29",
-      "endDate": "2026-06-30",
+      "tripDate": "2026-06-30",
+      "endDate": "2026-07-01",
       "vehicle": "5881",
       "docNo": "2533",
       "destination": "씨지앤대산전력㈜_바이오매스",
@@ -840,8 +873,8 @@
         ""
       ],
       "id": 1779761007415.0193,
-      "tripDate": "2026-06-29",
-      "endDate": "2026-06-30",
+      "tripDate": "2026-06-30",
+      "endDate": "2026-07-01",
       "vehicle": "5881",
       "docNo": "984",
       "destination": "씨지앤대산전력㈜_바이오매스",
@@ -2968,7 +3001,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(6월)",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -3734,7 +3767,7 @@
       "owner": "유황준",
       "destination": "한국중부발전(주)신보령발전본부",
       "outlet": "19",
-      "testItem": "통합, 확인검사",
+      "testItem": "먼지, 가스상, 유속, 수분",
       "task": "안전개선 확인 및 서류 검토, 통합, 확인검사 이후 나머지 시험항목 예정(먼지, 가스상, 유속, 수분)",
       "resultDueDate": "2026-07-07",
       "note": "5월: 통합, 확인검사, 서류검토 이후 먼지, 가스상, 유속, 수분 예정",
@@ -4451,7 +4484,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(6월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -4474,7 +4507,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(6월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-06",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -4520,7 +4553,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(6월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-07",
       "riskMonth": "2026-06",
       "_origRiskAssessment": "필요"
@@ -4756,6 +4789,57 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1780650902632",
+      "type": "other",
+      "date": "2026-07-02",
+      "startDate": "2026-07-02",
+      "endDate": "2026-07-03",
+      "name": "ISO",
+      "label": "ISO",
+      "people": [
+        "윤석래"
+      ],
+      "members": [
+        "윤석래"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
+    {
+      "id": "SCH-1780650705600",
+      "type": "leave",
+      "date": "2026-07-03",
+      "startDate": "2026-07-03",
+      "endDate": "2026-07-03",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "유황준"
+      ],
+      "members": [
+        "유황준"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
+    {
+      "id": "SCH-1780650689224",
+      "type": "other",
+      "date": "2026-07-02",
+      "startDate": "2026-07-02",
+      "endDate": "2026-07-02",
+      "name": "ISO",
+      "label": "ISO",
+      "people": [
+        "유황준"
+      ],
+      "members": [
+        "유황준"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1780279072025",
       "type": "leave",
@@ -5349,16 +5433,6 @@
     "한동우",
     "처장님",
     "부장님"
-  ],
-  "tempVehicles": [
-    {
-      "id": "8427",
-      "name": "8427 분석부",
-      "short": "분석부",
-      "cls": "temp",
-      "startDate": "2026-06-18",
-      "endDate": "2026-06-19"
-    }
   ],
   "updateHistory": [
     {
