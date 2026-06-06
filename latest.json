@@ -1,8 +1,64 @@
 {
-  "version": "2026-06-05T09:19:17.945Z",
+  "version": "2026-06-06T02:10:23.691Z",
   "updatedBy": "정우진",
-  "updateNote": "나침반 바늘은 정확한 방향을 가리키기 전에 항상 흔들린다",
+  "updateNote": "2026. 6. 6. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "10",
+      "testItem": "TSP",
+      "planMonth": "2026-06",
+      "region": "충남 태안",
+      "owner": "신현지",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "신현지",
+        "강훈희",
+        "정우진",
+        "한동우",
+        "",
+        ""
+      ],
+      "id": 1780711804150,
+      "tripDate": "2026-06-18",
+      "endDate": "2026-06-19",
+      "docNo": "2460",
+      "vehicle": "8427",
+      "destination": "한국서부발전(주) 태안발전본부",
+      "task": "먼지 측정기기의 상태표시 발생에 따른 정밀점검 등 필요",
+      "round": 1
+    },
+    {
+      "outlet": "1",
+      "testItem": "가스상",
+      "planMonth": "2026-06",
+      "region": "세종",
+      "owner": "이병우",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "이병우",
+        "장일웅",
+        "이수현",
+        "",
+        "",
+        ""
+      ],
+      "id": 1780711722801,
+      "tripDate": "2026-06-12",
+      "endDate": "2026-06-12",
+      "docNo": "2723",
+      "vehicle": "-",
+      "destination": "세종그린파워(주)",
+      "task": "가스상 분석기 비정상 측정에 따른 정밀점검 필요(반출)",
+      "round": 1
+    },
     {
       "outlet": "19",
       "testItem": "먼지, 가스상, 유속, 수분",
@@ -169,34 +225,6 @@
       "vehicle": "2559",
       "destination": "㈜엘지에너지솔루션 오창2공장",
       "task": "유속계 판넬 차압계 및 레귤레이터 교체",
-      "round": 1
-    },
-    {
-      "outlet": "1",
-      "testItem": "가스상",
-      "planMonth": "2026-06",
-      "region": "세종",
-      "owner": "이병우",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이병우",
-        "장일웅",
-        "이수현",
-        "",
-        "",
-        ""
-      ],
-      "id": 1780650504119,
-      "tripDate": "2026-06-12",
-      "endDate": "2026-06-12",
-      "docNo": "2723",
-      "vehicle": "xxxx",
-      "destination": "세종그린파워(주)",
-      "task": "가스상 분석기 비정상 측정에 따른 정밀점검 필요(반출)",
       "round": 1
     },
     {
@@ -446,34 +474,6 @@
       "docNo": "252",
       "destination": "에스케이하이닉스㈜ 청주4공장",
       "task": "신규부착"
-    },
-    {
-      "outlet": "10",
-      "testItem": "TSP",
-      "planMonth": "2026-06",
-      "region": "충남 태안",
-      "owner": "신현지",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "신현지",
-        "강훈희",
-        "정우진",
-        "한동우",
-        "",
-        ""
-      ],
-      "id": 1780390327508,
-      "tripDate": "2026-06-18",
-      "endDate": "2026-06-19",
-      "docNo": "2460",
-      "vehicle": "8427",
-      "destination": "한국서부발전(주) 태안발전본부",
-      "task": "먼지 측정기기의 상태표시 발생에 따른 정밀점검 등 필요",
-      "round": 1
     },
     {
       "outlet": "-",
@@ -5433,6 +5433,24 @@
     "한동우",
     "처장님",
     "부장님"
+  ],
+  "tempVehicles": [
+    {
+      "id": "-",
+      "name": "- 1부(싼타페)",
+      "short": "1부(싼타페)",
+      "cls": "temp",
+      "startDate": "2026-06-12",
+      "endDate": "2026-06-12"
+    },
+    {
+      "id": "8427",
+      "name": "8427 분석부",
+      "short": "분석부",
+      "cls": "temp",
+      "startDate": "2026-06-18",
+      "endDate": "2026-06-19"
+    }
   ],
   "updateHistory": [
     {
