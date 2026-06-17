@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-17T06:54:04.004Z",
+  "version": "2026-06-17T06:55:13.925Z",
   "updatedBy": "강훈희",
   "updateNote": "2026. 6. 17. 데이터 업데이트",
   "trips": [
@@ -22,14 +22,42 @@
         "",
         ""
       ],
-      "id": 1781679204056,
+      "id": 1781679305613,
       "tripDate": "2026-06-18",
       "endDate": "2026-06-19",
       "docNo": "2351",
-      "vehicle": "5881",
+      "vehicle": "8427",
       "destination": "㈜삼기",
       "task": "여과집진시설 상부 교체(펄스 및 전기공사 등)",
-      "round": 3
+      "round": 1
+    },
+    {
+      "outlet": "10",
+      "testItem": "TSP",
+      "planMonth": "2026-06",
+      "region": "충남 태안",
+      "owner": "신현지",
+      "note": "",
+      "risk": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "신현지",
+        "강훈희",
+        "정우진",
+        "한동우",
+        "",
+        ""
+      ],
+      "id": 1781679287578,
+      "tripDate": "2026-06-18",
+      "endDate": "2026-06-19",
+      "docNo": "2460",
+      "vehicle": "5881",
+      "destination": "한국서부발전(주) 태안발전본부",
+      "task": "먼지 측정기기의 상태표시 발생에 따른 정밀점검 등 필요",
+      "round": 1
     },
     {
       "outlet": "19",
@@ -365,34 +393,6 @@
       "vehicle": "5881",
       "destination": "에스케이하이닉스㈜ 청주4공장",
       "task": "신규부착",
-      "round": 1
-    },
-    {
-      "outlet": "10",
-      "testItem": "TSP",
-      "planMonth": "2026-06",
-      "region": "충남 태안",
-      "owner": "신현지",
-      "note": "",
-      "risk": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "신현지",
-        "강훈희",
-        "정우진",
-        "한동우",
-        "",
-        ""
-      ],
-      "id": 1780711804150,
-      "tripDate": "2026-06-18",
-      "endDate": "2026-06-19",
-      "docNo": "2460",
-      "vehicle": "8427",
-      "destination": "한국서부발전(주) 태안발전본부",
-      "task": "먼지 측정기기의 상태표시 발생에 따른 정밀점검 등 필요",
       "round": 1
     },
     {
