@@ -1,8 +1,37 @@
 {
-  "version": "2026-07-03T04:06:36.506Z",
+  "version": "2026-07-03T04:08:43.338Z",
   "updatedBy": "강훈희",
   "updateNote": "2026. 7. 3. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "1",
+      "testItem": "현장 점검",
+      "planMonth": "2026-07",
+      "region": "충남 서천",
+      "owner": "이병우",
+      "note": "",
+      "risk": false,
+      "longPending": true,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "이병우",
+        "유황준",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 1783051716755,
+      "tripDate": "2026-07-13",
+      "endDate": "2026-07-13",
+      "docNo": "현장 점검",
+      "vehicle": "2559",
+      "destination": "베르상스퍼시픽",
+      "task": "가. 장기 미수검(3년 이상)",
+      "round": 1
+    },
     {
       "outlet": "97",
       "testItem": "전항목",
@@ -88,35 +117,6 @@
       "vehicle": "5881",
       "destination": "현대제철(주)",
       "task": "질소산화물, 황산화물 분석기 성능 저하로 인한 교체 필요",
-      "round": 1
-    },
-    {
-      "outlet": "1",
-      "testItem": "현장 점검",
-      "planMonth": "2026-07",
-      "region": "충남 서천",
-      "owner": "이병우",
-      "note": "",
-      "risk": false,
-      "longPending": true,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이병우",
-        "유황준",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "id": 1783037893312,
-      "tripDate": "2026-07-09",
-      "endDate": "2026-07-09",
-      "docNo": "현장 점검",
-      "vehicle": "2559",
-      "destination": "베르상스퍼시픽",
-      "task": "가. 장기 미수검(3년 이상)",
       "round": 1
     },
     {
