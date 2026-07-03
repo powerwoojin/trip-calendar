@@ -1,8 +1,95 @@
 {
-  "version": "2026-07-03T00:20:31.619Z",
+  "version": "2026-07-03T02:25:22.592Z",
   "updatedBy": "강훈희",
   "updateNote": "2026. 7. 3. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "2,44,51,172",
+      "testItem": "사전위험성",
+      "planMonth": "2026-07",
+      "region": "충남 당진",
+      "owner": "강훈희",
+      "note": "",
+      "risk": true,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "강훈희",
+        "문숙",
+        "한동우",
+        "",
+        "",
+        ""
+      ],
+      "id": 1783045473475,
+      "tripDate": "2026-07-07",
+      "endDate": "2026-07-07",
+      "docNo": "2609",
+      "vehicle": "5881",
+      "destination": "현대제철(주)",
+      "task": "질소산화물, 황산화물 분석기 성능 저하로 인한 교체 필요",
+      "round": 1
+    },
+    {
+      "outlet": "97",
+      "testItem": "전항목",
+      "planMonth": "2026-07",
+      "region": "충북 청주",
+      "owner": "권신혜",
+      "note": "",
+      "risk": false,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "권신혜",
+        "조성수",
+        "한동우",
+        "",
+        "",
+        ""
+      ],
+      "id": 1783045384392,
+      "tripDate": "2026-07-20",
+      "endDate": "2026-07-20",
+      "docNo": "557",
+      "vehicle": "2555",
+      "destination": "에스케이하이닉스㈜ 청주4공장",
+      "task": "신규부착",
+      "round": 2
+    },
+    {
+      "outlet": "97",
+      "testItem": "사전위험성",
+      "planMonth": "2026-07",
+      "region": "충북 청주",
+      "owner": "권신혜",
+      "note": "",
+      "risk": true,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "권신혜",
+        "조성수",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 1783045281925,
+      "tripDate": "2026-07-07",
+      "endDate": "2026-07-07",
+      "docNo": "557",
+      "vehicle": "2559",
+      "destination": "에스케이하이닉스㈜ 청주4공장",
+      "task": "신규부착",
+      "round": 2
+    },
     {
       "outlet": "1",
       "testItem": "현장 점검",
@@ -1608,34 +1695,6 @@
       "docNo": "2943",
       "destination": "(주)동양환경",
       "task": "TMS 산소측정기 이상으로 탈거 후 신품 교체 필요"
-    },
-    {
-      "outlet": "2,44,51,172",
-      "testItem": "사전위험성",
-      "planMonth": "2026-07",
-      "region": "충남 당진",
-      "owner": "강훈희",
-      "note": "",
-      "risk": true,
-      "longPending": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "강훈희",
-        "문숙",
-        "윤석래",
-        "",
-        "",
-        ""
-      ],
-      "id": 1779718919203,
-      "tripDate": "2026-07-07",
-      "endDate": "2026-07-07",
-      "docNo": "2609",
-      "vehicle": "5881",
-      "destination": "현대제철(주)",
-      "task": "질소산화물, 황산화물 분석기 성능 저하로 인한 교체 필요"
     },
     {
       "outlet": "1,4",
@@ -4595,9 +4654,9 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "완료",
-      "planMonth": "2026-06",
-      "riskMonth": "2026-06",
+      "riskAssessment": "필요",
+      "planMonth": "2026-07",
+      "riskMonth": "2026-07",
       "_origRiskAssessment": "필요"
     },
     {
@@ -4996,7 +5055,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "완료",
+      "riskAssessment": "진행중(7월)",
       "planMonth": "2026-07",
       "riskMonth": "2026-07",
       "_origRiskAssessment": "필요"
@@ -5622,6 +5681,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1783041417217",
+      "type": "leave",
+      "date": "2026-07-13",
+      "startDate": "2026-07-13",
+      "endDate": "2026-07-13",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "정우진"
+      ],
+      "members": [
+        "정우진"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1783037916266",
       "type": "education",
