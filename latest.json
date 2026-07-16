@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-16T02:00:57.723Z",
+  "version": "2026-07-16T02:16:30.600Z",
   "updatedBy": "강훈희",
   "updateNote": "2026. 7. 16. 데이터 업데이트",
   "trips": [
@@ -5710,6 +5710,40 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1784168118734",
+      "type": "leave",
+      "date": "2026-07-20",
+      "startDate": "2026-07-20",
+      "endDate": "2026-07-21",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "한동우"
+      ],
+      "members": [
+        "한동우"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
+    {
+      "id": "SCH-1784168093711",
+      "type": "leave",
+      "date": "2026-08-28",
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "한동우"
+      ],
+      "members": [
+        "한동우"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1784161798009",
       "type": "leave",
