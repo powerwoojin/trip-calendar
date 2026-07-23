@@ -1,8 +1,37 @@
 {
-  "version": "2026-07-23T18:08:07.084Z",
+  "version": "2026-07-23T18:32:46.094Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 7. 24. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "2",
+      "testItem": "유속",
+      "planMonth": "2026-08",
+      "region": "충북 청주",
+      "owner": "조성수",
+      "note": "",
+      "risk": false,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "조성수",
+        "장일웅",
+        "김민지",
+        "",
+        "",
+        ""
+      ],
+      "id": 1784831290682,
+      "tripDate": "2026-08-17",
+      "endDate": "2026-08-17",
+      "docNo": "1463",
+      "vehicle": "2559",
+      "destination": "깨끗한나라(주)",
+      "task": "유속계 이상으로 차압센서 교체 필요",
+      "round": 1
+    },
     {
       "outlet": "1",
       "testItem": "NOx",
@@ -175,35 +204,6 @@
       "vehicle": "2559",
       "destination": "서산시 자원회수시설",
       "task": "신규부착",
-      "round": 1
-    },
-    {
-      "outlet": "2",
-      "testItem": "유속",
-      "planMonth": "2026-08",
-      "region": "충북 청주",
-      "owner": "조성수",
-      "note": "",
-      "risk": false,
-      "longPending": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "조성수",
-        "장일웅",
-        "김민지",
-        "",
-        "",
-        ""
-      ],
-      "id": 1784829045388,
-      "tripDate": "2026-08-18",
-      "endDate": "2026-08-18",
-      "docNo": "1463",
-      "vehicle": "2559",
-      "destination": "깨끗한나라(주)",
-      "task": "유속계 이상으로 차압센서 교체 필요",
       "round": 1
     },
     {
