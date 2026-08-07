@@ -1,8 +1,37 @@
 {
-  "version": "2026-08-04T01:00:47.517Z",
+  "version": "2026-08-07T06:33:24.386Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 8. 4. 데이터 업데이트",
+  "updateNote": "2026. 8. 7. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "2",
+      "testItem": "통합기술지원",
+      "planMonth": "2026-08",
+      "region": "논산시",
+      "owner": "유황준",
+      "note": "",
+      "risk": false,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "유황준",
+        "한동우",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 1786084390687,
+      "tripDate": "2026-08-13",
+      "endDate": "2026-08-13",
+      "docNo": "통합기술지원",
+      "vehicle": "5881",
+      "destination": "에스지씨솔루션(주) 논산공장",
+      "task": "통합기술지원",
+      "round": 1
+    },
     {
       "outlet": "5",
       "testItem": "산소",
@@ -87,35 +116,6 @@
       "vehicle": "5881",
       "destination": "현대오일뱅크",
       "task": "안전팀+부장님"
-    },
-    {
-      "outlet": "2",
-      "testItem": "통합기술지원",
-      "planMonth": "2026-08",
-      "region": "논산시",
-      "owner": "유황준",
-      "note": "",
-      "risk": false,
-      "longPending": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "유황준",
-        "장일웅",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "id": 1785804196910,
-      "tripDate": "2026-08-12",
-      "endDate": "2026-08-12",
-      "docNo": "통합기술지원",
-      "vehicle": "5881",
-      "destination": "에스지씨솔루션(주) 논산공장",
-      "task": "통합기술지원",
-      "round": 1
     },
     {
       "outlet": "100, 101, 102, 103",
@@ -5840,7 +5840,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(8월)",
       "planMonth": "2026-08",
       "riskMonth": "2026-08",
       "_origRiskAssessment": "필요"
@@ -5927,7 +5927,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(9월)",
       "planMonth": "2026-09",
       "riskMonth": "2026-09",
       "_origRiskAssessment": "필요"
@@ -6094,7 +6094,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(8월)",
       "planMonth": "2026-09",
       "riskMonth": "2026-08",
       "_origRiskAssessment": "필요",
