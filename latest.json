@@ -1,8 +1,37 @@
 {
-  "version": "2026-08-13T02:05:44.074Z",
+  "version": "2026-08-13T02:13:56.989Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 8. 13. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "1",
+      "testItem": "산소",
+      "planMonth": "2026-08",
+      "region": "충남 논산",
+      "owner": "유황준",
+      "note": "해물칼국수",
+      "risk": false,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "유황준",
+        "이병우",
+        "이수현",
+        "",
+        "",
+        ""
+      ],
+      "id": 1786587003624,
+      "tripDate": "2026-08-26",
+      "endDate": "2026-08-26",
+      "docNo": "11797",
+      "vehicle": "5881",
+      "destination": "에스지씨솔루션㈜ 논산공장",
+      "task": "O2측정기 교체 및 교정",
+      "round": 1
+    },
     {
       "outlet": "1",
       "testItem": "통합기술지원",
@@ -18,12 +47,12 @@
       "members": [
         "문숙",
         "조성수",
-        "",
+        "김민제",
         "",
         "",
         ""
       ],
-      "id": 1786586568811,
+      "id": 1786586978972,
       "tripDate": "2026-08-26",
       "endDate": "2026-08-26",
       "docNo": "통합기술지원",
@@ -233,35 +262,6 @@
       "vehicle": "2559",
       "destination": "에스지씨솔루션(주) 천안유리공장",
       "task": "통합기술지원",
-      "round": 1
-    },
-    {
-      "outlet": "1",
-      "testItem": "산소",
-      "planMonth": "2026-08",
-      "region": "충남 논산",
-      "owner": "유황준",
-      "note": "",
-      "risk": false,
-      "longPending": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "유황준",
-        "이병우",
-        "이수현",
-        "",
-        "",
-        ""
-      ],
-      "id": 1786585479272,
-      "tripDate": "2026-08-26",
-      "endDate": "2026-08-26",
-      "docNo": "11797",
-      "vehicle": "5881",
-      "destination": "에스지씨솔루션㈜ 논산공장",
-      "task": "O2측정기 교체 및 교정",
       "round": 1
     },
     {
