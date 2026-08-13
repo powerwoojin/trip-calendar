@@ -1,8 +1,37 @@
 {
-  "version": "2026-08-13T01:59:38.025Z",
+  "version": "2026-08-13T02:05:44.074Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 8. 13. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "1",
+      "testItem": "통합기술지원",
+      "planMonth": "2026-08",
+      "region": "천안시",
+      "owner": "문숙",
+      "note": "",
+      "risk": false,
+      "longPending": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "문숙",
+        "조성수",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "id": 1786586568811,
+      "tripDate": "2026-08-26",
+      "endDate": "2026-08-26",
+      "docNo": "통합기술지원",
+      "vehicle": "2559",
+      "destination": "케이씨글라스(주)",
+      "task": "통합기술지원",
+      "round": 1
+    },
     {
       "outlet": "1",
       "testItem": "사전위험성",
@@ -203,35 +232,6 @@
       "docNo": "통합기술지원",
       "vehicle": "2559",
       "destination": "에스지씨솔루션(주) 천안유리공장",
-      "task": "통합기술지원",
-      "round": 1
-    },
-    {
-      "outlet": "1",
-      "testItem": "통합기술지원",
-      "planMonth": "2026-08",
-      "region": "천안시",
-      "owner": "문숙",
-      "note": "",
-      "risk": false,
-      "longPending": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "문숙",
-        "조성수",
-        "정다은",
-        "",
-        "",
-        ""
-      ],
-      "id": 1786585488875,
-      "tripDate": "2026-08-26",
-      "endDate": "2026-08-26",
-      "docNo": "통합기술지원",
-      "vehicle": "2559",
-      "destination": "케이씨글라스(주)",
       "task": "통합기술지원",
       "round": 1
     },
@@ -3672,9 +3672,9 @@
       "planMonth": "2026-08",
       "riskMonth": "",
       "riskAssessment": "완료",
-      "region": "당진시",
-      "owner": "김민지",
-      "destination": "생고뱅이소바코리아(주)",
+      "region": "천안시",
+      "owner": "문숙",
+      "destination": "케이씨글라스(주)",
       "outlet": "1",
       "testItem": "통합기술지원",
       "task": "통합기술지원",
@@ -6492,6 +6492,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1786586725003",
+      "type": "education",
+      "date": "2026-08-25",
+      "startDate": "2026-08-25",
+      "endDate": "2026-08-26",
+      "name": "기후대기 정책교육",
+      "label": "기후대기 정책교육",
+      "people": [
+        "정다은"
+      ],
+      "members": [
+        "정다은"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1785136747577",
       "type": "education",
