@@ -1,8 +1,39 @@
 {
-  "version": "2026-08-19T09:06:48.544Z",
+  "version": "2026-08-19T09:16:39.375Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 8. 19. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "108",
+      "testItem": "전항목",
+      "planMonth": "2026-09",
+      "region": "충남 서산",
+      "owner": "신누리",
+      "note": "",
+      "siteCode": "",
+      "siteAddr": "",
+      "risk": false,
+      "longPending": false,
+      "techSupport": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "신누리",
+        "장일웅",
+        "이수현",
+        "김준태",
+        "",
+        ""
+      ],
+      "id": 1787130538709.7312,
+      "tripDate": "2026-09-16",
+      "endDate": "2026-09-17",
+      "vehicle": "2555",
+      "docNo": "3623",
+      "destination": "에이치디현대오일뱅크㈜",
+      "task": "정기보수에 따른 배출시설 등 및 방지시설 미가동, NOx 컨버터 교체"
+    },
     {
       "outlet": "225",
       "testItem": "D/L",
@@ -7805,7 +7836,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(9월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-09",
       "riskMonth": "2026-09",
       "_origRiskAssessment": "필요"
@@ -7917,7 +7948,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(9월)",
+      "riskAssessment": "필요",
       "planMonth": "2026-09",
       "riskMonth": "2026-09",
       "_origRiskAssessment": "필요"
