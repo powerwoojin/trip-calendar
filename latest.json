@@ -1,5 +1,5 @@
 {
-  "version": "2026-08-21T07:25:15.570Z",
+  "version": "2026-08-21T07:26:18.265Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 8. 21. 데이터 업데이트",
   "trips": [
@@ -10,8 +10,8 @@
       "region": "충남 서산",
       "owner": "안전팀",
       "note": "",
-      "siteCode": "170036",
-      "siteAddr": "충청남도 서산시 대산읍 독곶2로 103 (독곶리 411-4번지 )",
+      "siteCode": "170032",
+      "siteAddr": "충청남도 서산시 대산읍 평신2로 182 (대죽리 640-6 )",
       "risk": false,
       "longPending": false,
       "techSupport": false,
@@ -26,12 +26,12 @@
         "한동우",
         "장일웅"
       ],
-      "id": 1787297099467,
+      "id": 1787297173804,
       "tripDate": "2026-09-07",
       "endDate": "2026-09-07",
       "docNo": "안전팀",
       "vehicle": "5881",
-      "destination": "한화토탈에너지스㈜",
+      "destination": "에이치디현대오일뱅크",
       "task": "안전",
       "round": 1
     },
@@ -6002,14 +6002,17 @@
       "riskAssessment": "완료",
       "region": "충남 서산",
       "owner": "안전팀",
-      "destination": "한화토탈에너지스㈜",
+      "destination": "에이치디현대오일뱅크",
       "outlet": "미정",
       "testItem": "안전",
       "task": "안전",
       "resultDueDate": "",
       "delayReason": "",
       "delayed": false,
-      "csvProgress": "진행중"
+      "csvProgress": "진행중",
+      "completed": false,
+      "completedAt": "",
+      "_origRiskAssessment": "완료"
     },
     {
       "id": "DOC-1786601585969",
