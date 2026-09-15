@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-14T09:04:49.576Z",
+  "version": "2026-09-15T05:29:26.240Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 9. 14. 데이터 업데이트",
+  "updateNote": "2026. 9. 15. 데이터 업데이트",
   "trips": [
     {
       "outlet": "5, 6",
@@ -961,38 +961,6 @@
       "vehicle": "5881",
       "destination": "에이치디현대오일뱅크",
       "task": "안전",
-      "round": 1
-    },
-    {
-      "outlet": "176",
-      "testItem": "통합, 유속",
-      "planMonth": "2026-10",
-      "region": "충남 서산",
-      "owner": "장일웅",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": false,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "장일웅",
-        "이병우",
-        "이수현",
-        "",
-        "",
-        ""
-      ],
-      "id": 1787285448143,
-      "tripDate": "2026-10-21",
-      "endDate": "2026-10-22",
-      "docNo": "4766",
-      "vehicle": "5881",
-      "destination": "한화토탈에너지스(주)",
-      "task": "통신장비(케이블, 컨버터 등) 이상으로 인한 유속계 동작불량(유속계 탈착 제작사 점검 보냄)",
       "round": 1
     },
     {
@@ -9267,13 +9235,14 @@
       "note": "",
       "delayReason": "",
       "delayed": false,
-      "csvProgress": "",
+      "csvProgress": "대기",
       "completed": false,
       "completedAt": "",
       "riskAssessment": "필요",
       "planMonth": "2026-10",
       "riskMonth": "2026-09",
-      "_origRiskAssessment": "필요"
+      "_origRiskAssessment": "필요",
+      "completeMemo": ""
     },
     {
       "id": "EX-1787100587141-134",
@@ -9652,7 +9621,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(9월)",
       "_excelProgress": "(빈칸)",
       "planMonth": "2026-09",
       "riskMonth": "2026-09",
@@ -9748,6 +9717,67 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1789450155571",
+      "type": "leave",
+      "date": "2026-09-28",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-28",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "정우진",
+        "이병우",
+        "한동우"
+      ],
+      "members": [
+        "정우진",
+        "이병우",
+        "한동우"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
+    {
+      "id": "SCH-1789450115260",
+      "type": "leave",
+      "date": "2026-09-21",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-23",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "김민제"
+      ],
+      "members": [
+        "김민제"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
+    {
+      "id": "SCH-1789450090509",
+      "type": "leave",
+      "date": "2026-09-23",
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "정우진",
+        "신누리",
+        "이병우",
+        "한동우"
+      ],
+      "members": [
+        "정우진",
+        "신누리",
+        "이병우",
+        "한동우"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1787877779531",
       "type": "education",
