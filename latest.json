@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-17T08:58:09.526Z",
+  "version": "2026-09-21T02:19:38.931Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 9. 17. 데이터 업데이트",
+  "updateNote": "2026. 9. 21. 데이터 업데이트",
   "trips": [
     {
       "outlet": "-",
@@ -10,8 +10,8 @@
       "region": "충남 당진",
       "owner": "처장님",
       "note": "",
-      "siteCode": "170717",
-      "siteAddr": "충청남도 당진시 송악읍 북부산업로 1480 현대제철 (송산면 동곡리 168-10 외 821필지)",
+      "siteCode": "",
+      "siteAddr": "",
       "risk": false,
       "longPending": false,
       "techSupport": false,
@@ -22,11 +22,11 @@
         "처장님",
         "부장님",
         "이병우",
-        "",
+        "문숙",
         "",
         ""
       ],
-      "id": 1789635215559,
+      "id": 1789957149789,
       "tripDate": "2026-10-13",
       "endDate": "2026-10-13",
       "docNo": "현장경영",
@@ -2088,9 +2088,9 @@
       "resultNote": "",
       "members": [
         "조성수",
-        "장일웅",
+        "유황준",
+        "김민제",
         "김준태",
-        "이수현",
         "",
         ""
       ],
@@ -2119,9 +2119,9 @@
       "resultNote": "",
       "members": [
         "조성수",
-        "장일웅",
+        "유황준",
+        "김민제",
         "김준태",
-        "이수현",
         "",
         ""
       ],
@@ -2150,9 +2150,9 @@
       "resultNote": "",
       "members": [
         "조성수",
-        "장일웅",
+        "유황준",
+        "김민제",
         "김준태",
-        "이수현",
         "",
         ""
       ],
@@ -6457,7 +6457,10 @@
       "resultDueDate": "",
       "delayReason": "",
       "delayed": false,
-      "csvProgress": "진행중"
+      "csvProgress": "진행중",
+      "completed": false,
+      "completedAt": "",
+      "_origRiskAssessment": "완료"
     },
     {
       "id": "DOC-1787297099468",
