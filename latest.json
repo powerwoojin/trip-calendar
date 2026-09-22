@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-22T08:09:07.009Z",
+  "version": "2026-09-22T08:09:46.153Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 9. 22. 데이터 업데이트",
   "trips": [
@@ -10606,6 +10606,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1790064576532",
+      "type": "leave",
+      "date": "2026-10-30",
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "정우진"
+      ],
+      "members": [
+        "정우진"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1790064541763",
       "type": "holiday",
