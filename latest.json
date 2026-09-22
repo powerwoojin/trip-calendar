@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-22T08:02:00.828Z",
+  "version": "2026-09-22T08:09:07.009Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 9. 22. 데이터 업데이트",
   "trips": [
@@ -10606,6 +10606,19 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1790064541763",
+      "type": "holiday",
+      "date": "2026-12-25",
+      "startDate": "2026-12-25",
+      "endDate": "2026-12-25",
+      "name": "크리스마스🎄",
+      "label": "크리스마스🎄",
+      "people": [],
+      "members": [],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1790064116066",
       "type": "education",
