@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-23T01:26:11.173Z",
+  "version": "2026-09-23T01:49:23.142Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 9. 23. 데이터 업데이트",
   "trips": [
@@ -10622,7 +10622,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(10월)",
       "planMonth": "2026-10",
       "riskMonth": "2026-10",
       "_origRiskAssessment": "필요",
@@ -10721,7 +10721,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(10월)",
       "planMonth": "2026-10",
       "riskMonth": "2026-10",
       "_origRiskAssessment": "필요",
@@ -11301,6 +11301,45 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1790128155427",
+      "type": "other",
+      "date": "2026-10-14",
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "name": "Cop 학습동아리",
+      "label": "Cop 학습동아리",
+      "people": [
+        "문숙",
+        "이수현",
+        "정우진",
+        "김민지",
+        "유황준",
+        "송철민",
+        "장일웅",
+        "권신혜",
+        "한동우",
+        "김민제",
+        "정다은",
+        "김준태"
+      ],
+      "members": [
+        "문숙",
+        "이수현",
+        "정우진",
+        "김민지",
+        "유황준",
+        "송철민",
+        "장일웅",
+        "권신혜",
+        "한동우",
+        "김민제",
+        "정다은",
+        "김준태"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1790064576532",
       "type": "leave",
