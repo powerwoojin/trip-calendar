@@ -1,8 +1,40 @@
 {
-  "version": "2026-09-23T01:49:23.142Z",
+  "version": "2026-09-28T06:20:48.261Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 9. 23. 데이터 업데이트",
+  "updateNote": "2026. 9. 28. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "10,11",
+      "testItem": "통합, 유속",
+      "planMonth": "2026-11",
+      "region": "충남 당진",
+      "owner": "문숙",
+      "note": "",
+      "siteCode": "",
+      "siteAddr": "",
+      "risk": false,
+      "longPending": false,
+      "techSupport": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "문숙",
+        "김민제",
+        "김민지",
+        "이수현",
+        "",
+        ""
+      ],
+      "id": 1790576423614,
+      "tripDate": "2026-11-24",
+      "endDate": "2026-11-24",
+      "docNo": "5678",
+      "vehicle": "2555",
+      "destination": "㈜알테크노메탈",
+      "task": "유속계 측정범위 간헐적 초과 발생으로 점검 필요(차압계 교체)",
+      "round": 1
+    },
     {
       "outlet": "8",
       "testItem": "HCl",
@@ -827,38 +859,6 @@
       "vehicle": "2555",
       "destination": "이화산업㈜예산공장",
       "task": "가. 장기 미수검(3년 이상)",
-      "round": 1
-    },
-    {
-      "outlet": "10,11",
-      "testItem": "통합, 유속",
-      "planMonth": "2026-11",
-      "region": "충남 당진",
-      "owner": "문숙",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": false,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "문숙",
-        "김민제",
-        "한동우",
-        "이수현",
-        "",
-        ""
-      ],
-      "id": 1790063406001,
-      "tripDate": "2026-11-24",
-      "endDate": "2026-11-24",
-      "docNo": "5678",
-      "vehicle": "2555",
-      "destination": "㈜알테크노메탈",
-      "task": "유속계 측정범위 간헐적 초과 발생으로 점검 필요(차압계 교체)",
       "round": 1
     },
     {
@@ -11219,7 +11219,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "진행중(11월)",
+      "riskAssessment": "필요",
       "_excelProgress": "(빈칸)",
       "planMonth": "2026-11",
       "riskMonth": "2026-11",
@@ -11301,6 +11301,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1790576369629",
+      "type": "education",
+      "date": "2026-11-23",
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-25",
+      "name": "5급 승진자 교육",
+      "label": "5급 승진자 교육",
+      "people": [
+        "한동우"
+      ],
+      "members": [
+        "한동우"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1790128155427",
       "type": "other",
