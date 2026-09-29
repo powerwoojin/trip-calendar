@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-28T06:20:48.261Z",
+  "version": "2026-09-29T00:17:27.900Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 9. 28. 데이터 업데이트",
+  "updateNote": "2026. 9. 29. 데이터 업데이트",
   "trips": [
     {
       "outlet": "10,11",
@@ -3235,8 +3235,8 @@
       "members": [
         "정우진",
         "신누리",
-        "김민지",
         "정다은",
+        "권신혜",
         "",
         ""
       ],
@@ -3266,8 +3266,8 @@
       "members": [
         "정우진",
         "신누리",
-        "김민지",
         "정다은",
+        "권신혜",
         "",
         ""
       ],
@@ -11219,7 +11219,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(11월)",
       "_excelProgress": "(빈칸)",
       "planMonth": "2026-11",
       "riskMonth": "2026-11",
