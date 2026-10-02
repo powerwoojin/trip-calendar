@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-02T02:29:27.890Z",
+  "version": "2026-10-02T03:54:18.082Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 10. 2. 데이터 업데이트",
   "trips": [
@@ -11351,6 +11351,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1790913251225",
+      "type": "leave",
+      "date": "2026-11-03",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-11",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "권신혜"
+      ],
+      "members": [
+        "권신혜"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1790576369629",
       "type": "education",
