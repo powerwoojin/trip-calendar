@@ -1,8 +1,40 @@
 {
-  "version": "2026-10-23T00:26:49.832Z",
+  "version": "2026-10-23T00:35:27.700Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 10. 23. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "6",
+      "testItem": "현장 점검",
+      "planMonth": "2026-10",
+      "region": "세종",
+      "owner": "이병우",
+      "note": "",
+      "siteCode": "170009",
+      "siteAddr": "세종특별자치시  부강면 부강금호로 497",
+      "risk": false,
+      "longPending": true,
+      "techSupport": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "부장님",
+        "문숙",
+        "장일웅",
+        "정우진",
+        "",
+        ""
+      ],
+      "id": 1792715717855,
+      "tripDate": "2026-10-23",
+      "endDate": "2026-10-23",
+      "docNo": "현장 점검",
+      "vehicle": "2559",
+      "destination": "아세아제지㈜ 세종공장",
+      "task": "가. 장기 미수검(3년 이상)",
+      "round": 1
+    },
     {
       "outlet": "1",
       "testItem": "D/L",
@@ -7713,6 +7745,24 @@
     }
   ],
   "docs": [
+    {
+      "id": "DOC-1792715717855",
+      "docNo": "현장 점검",
+      "receiptDoc": "현장 점검",
+      "planMonth": "2026-10",
+      "riskMonth": "",
+      "riskAssessment": "완료",
+      "region": "세종",
+      "owner": "이병우",
+      "destination": "아세아제지㈜ 세종공장",
+      "outlet": "6",
+      "testItem": "현장 점검",
+      "task": "가. 장기 미수검(3년 이상)",
+      "resultDueDate": "",
+      "delayReason": "",
+      "delayed": false,
+      "csvProgress": "진행중"
+    },
     {
       "id": "DOC-1791453453861",
       "docNo": "금강청 지원",
