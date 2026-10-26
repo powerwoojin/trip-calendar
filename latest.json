@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-26T00:20:20.779Z",
+  "version": "2026-10-26T06:16:42.875Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 10. 26. 데이터 업데이트",
   "trips": [
@@ -2953,7 +2953,7 @@
       "members": [
         "정다은",
         "신누리",
-        "정우진",
+        "",
         "",
         "",
         ""
@@ -2984,7 +2984,7 @@
       "members": [
         "정다은",
         "신누리",
-        "정우진",
+        "",
         "",
         "",
         ""
@@ -8449,9 +8449,9 @@
       "task": "측정기기 반출 후 정비",
       "resultDueDate": "2026-06-14",
       "note": "",
-      "delayReason": "시험 재요청",
-      "delayed": true,
-      "csvProgress": "연기",
+      "delayReason": "",
+      "delayed": false,
+      "csvProgress": "대기",
       "completed": false,
       "completedAt": "",
       "riskAssessment": "진행중(6월)",
@@ -10103,9 +10103,9 @@
       "task": "신규부착",
       "resultDueDate": "2026-10-10",
       "note": "미가동으로 인한 연기",
-      "delayReason": "엑셀 업로드 (연기 상태)",
-      "delayed": true,
-      "csvProgress": "연기",
+      "delayReason": "",
+      "delayed": false,
+      "csvProgress": "대기",
       "completed": false,
       "completedAt": "",
       "riskAssessment": "완료",
@@ -10440,9 +10440,9 @@
       "task": "질소산화물 항목의 비정상 측정 발생(지속적인 '0'값 지시)->제작사 반출 점검",
       "resultDueDate": "2026-12-23",
       "note": "",
-      "delayReason": "엑셀 업로드 (연기 상태)",
-      "delayed": true,
-      "csvProgress": "연기",
+      "delayReason": "",
+      "delayed": false,
+      "csvProgress": "대기",
       "completed": false,
       "completedAt": "",
       "riskAssessment": "완료"
