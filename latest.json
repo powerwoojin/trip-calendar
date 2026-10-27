@@ -1,7 +1,7 @@
 {
-  "version": "2026-10-26T06:16:42.875Z",
+  "version": "2026-10-27T01:04:14.931Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 10. 26. 데이터 업데이트",
+  "updateNote": "2026. 10. 27. 데이터 업데이트",
   "trips": [
     {
       "outlet": "5",
@@ -946,7 +946,7 @@
       "resultNote": "",
       "members": [
         "김민제",
-        "신누리",
+        "문숙",
         "",
         "",
         "",
@@ -1010,7 +1010,7 @@
       "resultNote": "",
       "members": [
         "김민제",
-        "신누리",
+        "문숙",
         "",
         "",
         "",
@@ -11317,7 +11317,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(12월)",
       "_excelProgress": "(빈칸)",
       "planMonth": "2026-12",
       "riskMonth": "2026-12",
@@ -11518,6 +11518,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1793062983519",
+      "type": "education",
+      "date": "2026-11-10",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "name": "본부 교육",
+      "label": "본부 교육",
+      "people": [
+        "신누리"
+      ],
+      "members": [
+        "신누리"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1792715147723",
       "type": "other",
