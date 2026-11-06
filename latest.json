@@ -1,7 +1,7 @@
 {
-  "version": "2026-11-05T00:43:32.241Z",
+  "version": "2026-11-06T07:12:46.032Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 11. 5. 데이터 업데이트",
+  "updateNote": "2026. 11. 6. 데이터 업데이트",
   "trips": [
     {
       "outlet": "A-10",
@@ -1690,38 +1690,6 @@
       "docNo": "총량기술지원",
       "vehicle": "2555",
       "destination": "㈜다원알로이",
-      "task": "2. 총량기술지원",
-      "round": 1
-    },
-    {
-      "outlet": "-",
-      "testItem": "2. 총량기술지원",
-      "planMonth": "2026-10",
-      "region": "충남 아산",
-      "owner": "이병우",
-      "note": "NOx, TSP",
-      "siteCode": "170041",
-      "siteAddr": "충청남도 아산시 인주면 현대로 1181-40 (문방리 186번지)",
-      "risk": false,
-      "longPending": false,
-      "techSupport": true,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "이병우",
-        "김민지",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "id": 1790060591506,
-      "tripDate": "2026-11-06",
-      "endDate": "2026-11-06",
-      "docNo": "총량기술지원",
-      "vehicle": "2555",
-      "destination": "동화기업㈜",
       "task": "2. 총량기술지원",
       "round": 1
     },
