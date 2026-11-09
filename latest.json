@@ -1,7 +1,7 @@
 {
-  "version": "2026-11-06T07:12:46.032Z",
+  "version": "2026-11-09T00:50:42.838Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 11. 6. 데이터 업데이트",
+  "updateNote": "2026. 11. 9. 데이터 업데이트",
   "trips": [
     {
       "outlet": "A-10",
@@ -11538,6 +11538,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1794185419316",
+      "type": "leave",
+      "date": "2026-11-16",
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-17",
+      "name": "연가",
+      "label": "연가",
+      "people": [
+        "장일웅"
+      ],
+      "members": [
+        "장일웅"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1793164654125",
       "type": "education",
