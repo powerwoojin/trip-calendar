@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-18T08:28:53.181Z",
+  "version": "2026-11-18T09:06:05.518Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 11. 18. 데이터 업데이트",
   "trips": [
@@ -161,38 +161,6 @@
       "vehicle": "5881",
       "destination": "(주)풍년그린텍",
       "task": "신규",
-      "round": 1
-    },
-    {
-      "outlet": "3",
-      "testItem": "가스상",
-      "planMonth": "2026-11",
-      "region": "충남 천안",
-      "owner": "김민제",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": false,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "김민제",
-        "신누리",
-        "김준태",
-        "",
-        "",
-        ""
-      ],
-      "id": 1794978716109,
-      "tripDate": "2026-11-27",
-      "endDate": "2026-11-27",
-      "docNo": "5185",
-      "vehicle": "2559",
-      "destination": "(주)창광실업",
-      "task": "TMS기기 내부 장치 부식으로 인한 압력 저하로 동작불량 발생",
       "round": 1
     },
     {
