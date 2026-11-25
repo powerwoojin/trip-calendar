@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-25T09:56:29.107Z",
+  "version": "2026-11-25T10:07:30.480Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 11. 25. 데이터 업데이트",
   "trips": [
@@ -1310,37 +1310,6 @@
       "docNo": "5831",
       "destination": "현대제철(주)",
       "task": "황산화물 및 질소산화물 적외선 광원(IR Source) 노후화로 인한 교체"
-    },
-    {
-      "outlet": "7",
-      "testItem": "통합, 가스상",
-      "planMonth": "2026-12",
-      "region": "충남 당진",
-      "owner": "정우진",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": true,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "조성수",
-        "정우진",
-        "김민제",
-        "",
-        "",
-        ""
-      ],
-      "id": 1790067115769.1777,
-      "tripDate": "2026-12-02",
-      "endDate": "2026-12-03",
-      "vehicle": "2555",
-      "docNo": "5351",
-      "destination": "현대그린파워(주)",
-      "task": "가스쿨러 컴프레서 고장으로 반출 후 점검 필요"
     },
     {
       "outlet": "6",
