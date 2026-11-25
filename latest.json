@@ -1,8 +1,72 @@
 {
-  "version": "2026-11-24T00:04:37.103Z",
+  "version": "2026-11-25T09:55:37.527Z",
   "updatedBy": "문숙",
-  "updateNote": "2026. 11. 24. 데이터 업데이트",
+  "updateNote": "2026. 11. 25. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "-",
+      "testItem": "4. 기타",
+      "planMonth": "2026-12",
+      "region": "충남 아산",
+      "owner": "김민제",
+      "note": "",
+      "siteCode": "170733",
+      "siteAddr": "충청남도 아산시 탕정면 탕정로 380-2 (명암리 150)",
+      "risk": false,
+      "longPending": false,
+      "techSupport": true,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "김민제",
+        "이병우",
+        "송철민",
+        "",
+        "",
+        ""
+      ],
+      "id": 1795597127362,
+      "tripDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "docNo": "기술지원",
+      "vehicle": "2555",
+      "destination": "삼성디스플레이(주)아산2",
+      "task": "4. 기타",
+      "round": 1
+    },
+    {
+      "outlet": "23",
+      "testItem": "HCl",
+      "planMonth": "2026-12",
+      "region": "충남 천안",
+      "owner": "정다은",
+      "note": "",
+      "siteCode": "",
+      "siteAddr": "",
+      "risk": false,
+      "longPending": false,
+      "techSupport": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "정다은",
+        "신누리",
+        "장일웅",
+        "김준태",
+        "",
+        ""
+      ],
+      "id": 1795596996031,
+      "tripDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "docNo": "추후입력",
+      "vehicle": "5881",
+      "destination": "(주)풍년그린텍",
+      "task": "신규",
+      "round": 1
+    },
     {
       "outlet": "10,11",
       "testItem": "통합, 유속",
@@ -36,38 +100,6 @@
       "round": 1
     },
     {
-      "outlet": "23",
-      "testItem": "HCl",
-      "planMonth": "2026-12",
-      "region": "충남 천안",
-      "owner": "정다은",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": false,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "정다은",
-        "신누리",
-        "장일웅",
-        "",
-        "",
-        ""
-      ],
-      "id": 1795400188673,
-      "tripDate": "2026-12-02",
-      "endDate": "2026-12-02",
-      "docNo": "추후입력",
-      "vehicle": "5881",
-      "destination": "(주)풍년그린텍",
-      "task": "신규",
-      "round": 1
-    },
-    {
       "outlet": "4",
       "testItem": "통합, NOx",
       "planMonth": "2026-12",
@@ -84,8 +116,8 @@
       "resultNote": "",
       "members": [
         "문숙",
+        "한동우",
         "이수현",
-        "김준태",
         "",
         "",
         ""
@@ -115,8 +147,8 @@
       "resultNote": "",
       "members": [
         "문숙",
+        "한동우",
         "이수현",
-        "김준태",
         "",
         "",
         ""
@@ -146,8 +178,8 @@
       "resultNote": "",
       "members": [
         "문숙",
+        "한동우",
         "이수현",
-        "김준태",
         "",
         "",
         ""
@@ -7749,6 +7781,24 @@
   ],
   "docs": [
     {
+      "id": "DOC-1795597127362",
+      "docNo": "기술지원",
+      "receiptDoc": "기술지원",
+      "planMonth": "2026-12",
+      "riskMonth": "",
+      "riskAssessment": "완료",
+      "region": "충남 아산",
+      "owner": "김민제",
+      "destination": "삼성디스플레이(주)아산2",
+      "outlet": "-",
+      "testItem": "4. 기타",
+      "task": "4. 기타",
+      "resultDueDate": "",
+      "delayReason": "",
+      "delayed": false,
+      "csvProgress": "진행중"
+    },
+    {
       "id": "DOC-1794978217659",
       "docNo": "추후입력",
       "receiptDoc": "추후입력",
@@ -11466,7 +11516,7 @@
       "csvProgress": "진행중",
       "completed": false,
       "completedAt": "",
-      "riskAssessment": "필요",
+      "riskAssessment": "진행중(11월)",
       "_excelProgress": "(빈칸)",
       "planMonth": "2026-11",
       "riskMonth": "2026-11",
@@ -11549,6 +11599,27 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1795597169829",
+      "type": "education",
+      "date": "2026-11-27",
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "name": "심폐소생술 교육",
+      "label": "심폐소생술 교육",
+      "people": [
+        "김민제",
+        "정다은",
+        "김준태"
+      ],
+      "members": [
+        "김민제",
+        "정다은",
+        "김준태"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1794977718967",
       "type": "leave",
