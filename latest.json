@@ -1,8 +1,40 @@
 {
-  "version": "2026-11-27T07:19:23.814Z",
+  "version": "2026-11-27T07:26:36.784Z",
   "updatedBy": "문숙",
   "updateNote": "2026. 11. 27. 데이터 업데이트",
   "trips": [
+    {
+      "outlet": "23",
+      "testItem": "신규: 통합, 수분, 가스상, 유속",
+      "planMonth": "2026-12",
+      "region": "충남 천안",
+      "owner": "정다은",
+      "note": "",
+      "siteCode": "",
+      "siteAddr": "",
+      "risk": false,
+      "longPending": false,
+      "techSupport": false,
+      "status": "planned",
+      "completedAt": "",
+      "resultNote": "",
+      "members": [
+        "정다은",
+        "조성수",
+        "유황준",
+        "정우진",
+        "",
+        ""
+      ],
+      "id": 1795764393078,
+      "tripDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "docNo": "추후입력",
+      "vehicle": "5881",
+      "destination": "(주)풍년그린텍",
+      "task": "신규 전체 항목: 먼지, HCl, 가스상, 유속, 수분, 통합",
+      "round": 1
+    },
     {
       "outlet": "44",
       "testItem": "전항목(유속)",
@@ -382,38 +414,6 @@
       "vehicle": "2555",
       "destination": "현대그린파워(주)",
       "task": "가스쿨러 컴프레서 고장으로 반출 후 점검 필요",
-      "round": 1
-    },
-    {
-      "outlet": "23",
-      "testItem": "신규: 통합, 수분, 가스상, 먼지, 유속",
-      "planMonth": "2026-11",
-      "region": "충남 천안",
-      "owner": "정다은",
-      "note": "",
-      "siteCode": "",
-      "siteAddr": "",
-      "risk": false,
-      "longPending": false,
-      "techSupport": false,
-      "status": "planned",
-      "completedAt": "",
-      "resultNote": "",
-      "members": [
-        "정다은",
-        "조성수",
-        "유황준",
-        "정우진",
-        "",
-        ""
-      ],
-      "id": 1794990376008,
-      "tripDate": "2026-11-30",
-      "endDate": "2026-12-01",
-      "docNo": "추후입력",
-      "vehicle": "5881",
-      "destination": "(주)풍년그린텍",
-      "task": "먼지, HCl, 가스상, 유속, 수분, 통합",
       "round": 1
     },
     {
@@ -7842,8 +7842,8 @@
       "owner": "정다은",
       "destination": "(주)풍년그린텍",
       "outlet": "23",
-      "testItem": "HCl",
-      "task": "신규",
+      "testItem": "신규: 통합, 수분, 가스상, 유속",
+      "task": "신규 전체 항목: 먼지, HCl, 가스상, 유속, 수분, 통합",
       "resultDueDate": "",
       "delayReason": "",
       "delayed": false,
@@ -11561,6 +11561,23 @@
     }
   ],
   "schedules": [
+    {
+      "id": "SCH-1795764348997",
+      "type": "other",
+      "date": "2026-11-30",
+      "startDate": "2026-11-30",
+      "endDate": "2026-11-30",
+      "name": "건강검진",
+      "label": "건강검진",
+      "people": [
+        "유황준"
+      ],
+      "members": [
+        "유황준"
+      ],
+      "allMembers": false,
+      "confirmed": true
+    },
     {
       "id": "SCH-1795601837461",
       "type": "other",
